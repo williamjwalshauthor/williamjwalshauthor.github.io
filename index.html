@@ -19,7 +19,7 @@
       --cream:    #F9F6F0;
       --cream2:   #F1EDE4;
       --charcoal: #1C1C1C;
-      --mid:      #333333; /* Darker for higher mobile contrast/glare */
+      --mid:      #333333; 
       --cognac:   #A0522D;
       --border:   rgba(28,28,28,.15);
       --serif:    'Cormorant Garamond', Georgia, serif;
@@ -36,7 +36,7 @@
       font-size: 16px;
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
-      padding-bottom: 70px; /* Space for mobile sticky footer */
+      padding-bottom: 70px;
     }
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; height: auto; }
@@ -52,15 +52,10 @@
       height: 64px;
     }
     .nav-name { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; }
-    
     #nav-toggle { display: none; }
-    .nav-hamburger { display: none; cursor: pointer; padding: 10px; font-size: 1.5rem; user-select: none; }
-
+    .nav-hamburger { display: none; cursor: pointer; padding: 10px; font-size: 1.5rem; }
     .nav-links { display: flex; gap: 2rem; }
-    .nav-links a {
-      font-size: .85rem; font-weight: 500; letter-spacing: .08em;
-      text-transform: uppercase; color: var(--mid); transition: color .2s;
-    }
+    .nav-links a { font-size: .85rem; font-weight: 500; text-transform: uppercase; color: var(--mid); letter-spacing: .08em; }
 
     @media (max-width: 768px) {
       .nav-hamburger { display: block; }
@@ -69,39 +64,29 @@
         background: var(--cream); flex-direction: column; gap: 0;
         border-bottom: 1px solid var(--border);
       }
-      .nav-links a {
-        padding: 1.25rem; border-bottom: 1px solid var(--border);
-        width: 100%; text-align: center; font-size: 1rem;
-      }
+      .nav-links a { padding: 1.25rem; border-bottom: 1px solid var(--border); width: 100%; text-align: center; }
       #nav-toggle:checked ~ .nav-links { display: flex; }
     }
 
-    /* ─── SECTION SHELL ──────────────────────────────────────── */
+    /* ─── SECTIONS ───────────────────────────────────────────── */
     section { padding: 5rem clamp(1.2rem, 6vw, 8rem); }
-    .section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 3rem; }
-    .section-header h2 { font-family: var(--serif); font-size: clamp(1.8rem, 5vw, 2.8rem); }
+    .section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 3.5rem; }
+    .section-header h2 { font-family: var(--serif); font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 600; }
     .section-line { flex: 1; height: 1px; background: var(--border); }
 
     /* ─── HERO ───────────────────────────────────────────────── */
-    #home { min-height: 90vh; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; }
-    .hero-eyebrow { font-size: .8rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--cognac); margin-bottom: 1rem; }
+    #home { min-height: 90vh; display: flex; flex-direction: column; justify-content: center; position: relative; }
+    .hero-eyebrow { font-size: .8rem; font-weight: 500; text-transform: uppercase; color: var(--cognac); letter-spacing: .12em; margin-bottom: 1rem; }
     .hero-name { font-family: var(--serif); font-size: clamp(3.5rem, 12vw, 8rem); font-weight: 600; line-height: 1.1; margin-bottom: 1.5rem; }
     .hero-tagline { font-family: var(--serif); font-size: clamp(1.1rem, 3vw, 1.6rem); font-style: italic; color: var(--mid); max-width: 550px; margin-bottom: 2.5rem; }
-
-    /* ─── BUTTONS ────────────────────────────────────────────── */
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      min-height: 48px; /* High-utility touch target */
-      padding: 0 2rem; font-size: .85rem; font-weight: 500;
-      letter-spacing: .08em; text-transform: uppercase; border: 1.5px solid var(--charcoal);
-      transition: all .2s; cursor: pointer;
-    }
-    .btn-primary { background: var(--charcoal); color: var(--cream); width: fit-content; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 2rem; font-size: .85rem; font-weight: 500; text-transform: uppercase; border: 1.5px solid var(--charcoal); cursor: pointer; }
+    .btn-primary { background: var(--charcoal); color: var(--cream); }
     .btn-primary:hover { background: var(--cognac); border-color: var(--cognac); }
+    .hero-bg-text { position: absolute; right: -2rem; bottom: -1rem; font-family: var(--serif); font-size: clamp(8rem, 22vw, 20rem); font-weight: 600; color: rgba(28,28,28,.04); pointer-events: none; }
 
     /* ─── BOOKS ──────────────────────────────────────────────── */
     .series-label { font-size: .75rem; font-weight: 500; text-transform: uppercase; color: var(--cognac); margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: .5rem; }
-    .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 4rem; }
+    .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 4.5rem; }
     .book-card { background: var(--cream2); border: 1px solid var(--border); padding: 1.5rem; display: flex; flex-direction: column; }
     .book-badge { font-size: .7rem; font-weight: 500; text-transform: uppercase; color: var(--cream); background: var(--cognac); padding: .3rem .6rem; margin-bottom: 1rem; width: fit-content; }
     .book-badge.kindle { background: var(--mid); }
@@ -110,39 +95,35 @@
     .book-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 1rem; }
     .book-link { font-weight: 500; text-transform: uppercase; color: var(--cognac); font-size: .8rem; min-height: 44px; display: flex; align-items: center; }
 
-    /* ─── TOOLKIT & ESTIMATOR ────────────────────────────────── */
+    /* ─── TOOLKIT ────────────────────────────────────────────── */
     #toolkit { background: var(--cream2); }
-    .toolkit-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-    @media (max-width: 900px) { .toolkit-grid { grid-template-columns: 1fr; } }
-    
-    .toolkit-note-box { background: var(--cream); padding: 1.5rem; border: 1px solid var(--border); margin-top: 2rem; }
-    .estimator-input { width: 100%; height: 48px; padding: 0 1rem; border: 1.5px solid var(--border); margin-top: 0.5rem; font-size: 1rem; }
-    
-    .toolkit-form { padding: 2rem; background: var(--cream); border: 1px solid var(--border); }
+    .toolkit-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: start; }
+    .toolkit-tabs { list-style: none; margin: 1.5rem 0; display: flex; flex-direction: column; gap: 1.2rem; }
+    .toolkit-tabs li { font-size: 0.92rem; color: var(--mid); padding-left: 1.2rem; border-left: 2px solid var(--border); }
+    .toolkit-tabs li strong { color: var(--charcoal); display: block; }
+    .toolkit-form { padding: 2.5rem; background: var(--cream); border: 1px solid var(--border); }
     .formkit-input { width: 100% !important; height: 48px !important; border: 1.5px solid var(--border) !important; margin-bottom: 1rem !important; padding: 0 1rem !important; }
-    .formkit-submit { 
-      width: 100% !important; background: var(--charcoal) !important; color: var(--cream) !important; 
-      height: 52px !important; text-transform: uppercase !important; border: none !important; cursor: pointer !important; font-weight: 600 !important;
-    }
+    .formkit-submit { width: 100% !important; background: var(--charcoal) !important; color: var(--cream) !important; height: 52px !important; text-transform: uppercase !important; border: none !important; cursor: pointer !important; font-weight: 600 !important; transition: background 0.3s; }
     .formkit-submit:hover { background: var(--cognac) !important; }
 
     /* ─── ABOUT ──────────────────────────────────────────────── */
-    .about-grid { display: grid; grid-template-columns: 1.5fr 0.5fr; gap: 3rem; }
-    .about-photo { filter: grayscale(100%); border: 1px solid var(--border); }
+    .about-grid { display: grid; grid-template-columns: 1.5fr 0.5fr; gap: 4rem; }
+    .about-photo { border: 1px solid var(--border); }
 
     /* ─── CONTACT ────────────────────────────────────────────── */
     #contact { background: var(--charcoal); color: var(--cream); }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
-    .contact-row { display: flex; align-items: center; min-height: 56px; padding: 0 1rem; border: 1px solid rgba(249,246,240,.1); margin-bottom: .5rem; }
-    .contact-row:hover { background: rgba(255,255,255,0.05); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    .contact-links { display: flex; flex-direction: column; gap: .5rem; }
+    .contact-row { display: flex; align-items: center; min-height: 56px; padding: 0 1.2rem; border: 1px solid rgba(255,255,255,0.1); }
+    .contact-row:hover { background: rgba(255,255,255,0.05); border-color: var(--cognac-lt); }
     .contact-platform { font-size: .75rem; text-transform: uppercase; color: var(--cognac-lt); min-width: 80px; }
 
-    /* ─── MOBILE STICKY FOOTER ───────────────────────────────── */
+    /* ─── MOBILE STICKY BAR ──────────────────────────────────── */
     .mobile-sticky-bar { display: none; }
     @media (max-width: 768px) {
       .mobile-sticky-bar { display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: var(--charcoal); padding: 10px; z-index: 1000; border-top: 2px solid var(--cognac); }
       .mobile-sticky-bar .btn { width: 100%; background: var(--cognac); border: none; }
-      .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .about-grid, .contact-grid, .toolkit-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     }
 
     footer { background: #111; color: rgba(255,255,255,.3); text-align: center; padding: 3rem 1rem; font-size: .8rem; }
@@ -172,6 +153,7 @@
       <a href="#books" class="btn btn-primary">Browse 2026 Collection</a>
       <a href="#about" class="btn btn-outline" style="border: 1.5px solid var(--charcoal);">About</a>
     </div>
+    <div class="hero-bg-text">WJW</div>
   </section>
 
   <section id="books">
@@ -197,94 +179,4 @@
     <div class="books-grid">
       <div class="book-card">
         <span class="book-badge">Print</span>
-        <div class="book-title">2026 Mileage &amp; Expense Log</div>
-        <div class="book-desc">A unified record-keeping system for all independent contractors and small business owners.</div>
-        <div class="book-footer"><strong>$9.99</strong><a href="https://www.amazon.com/dp/B0GW63KQ1Z" target="_blank" class="book-link">Amazon →</a></div>
-      </div>
-      <div class="book-card">
-        <span class="book-badge kindle">Kindle</span>
-        <div class="book-title">Rideshare Driver Income Guide 2026</div>
-        <div class="book-desc">The strategic blueprint for driver profitability. Moving beyond the app's limited data.</div>
-        <div class="book-footer"><strong>$0.99</strong><a href="https://www.amazon.com/dp/B0GX2ZYHSK" target="_blank" class="book-link">Amazon →</a></div>
-      </div>
-      <div class="book-card">
-        <span class="book-badge" style="background: var(--charcoal);">Soon</span>
-        <div class="book-title">What You Earned, What You Owe</div>
-        <div class="book-desc">Comprehensive 2026 tax guide covering deductions, quarterly estimates, and IRS updates.</div>
-        <div class="book-footer"><strong>2026</strong><span class="book-link" style="color:var(--mid);">Coming Soon</span></div>
-      </div>
-    </div>
-
-    <div class="series-label">Practical AI Guides</div>
-    <div class="books-grid">
-      <div class="book-card">
-        <span class="book-badge" style="background: var(--charcoal);">Soon</span>
-        <div class="book-title">The AI Style Assistant</div>
-        <div class="book-desc">A guide to utilizing Large Language Models for wardrobe management and personal styling.</div>
-        <div class="book-footer"><strong>—</strong><span class="book-link" style="color:var(--mid);">Coming Soon</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="toolkit">
-    <div class="section-header"><h2>Toolkit</h2><div class="section-line"></div></div>
-    <div class="toolkit-grid">
-      <div>
-        <p style="font-size: 1.2rem; font-style: italic; margin-bottom: 1.5rem;">The Driver Profit System: 2026 Analytical Toolkit</p>
-        <ul class="toolkit-tabs">
-          <li><strong>Shift Log Analyzer</strong> — Real hourly rates after operating costs.</li>
-          <li><strong>Mileage Log Analyzer</strong> — Audits for unclaimed IRS deductions.</li>
-          <li><strong>Tax Estimator</strong> — Precision quarterly set-aside calculator.</li>
-        </ul>
-        <div class="toolkit-note-box">
-          <strong>2026 Deduction Estimator</strong>
-          <p style="font-size: 0.85rem; margin-top: 0.5rem;">Enter estimated annual business miles:</p>
-          <input type="number" id="milesInput" class="estimator-input" placeholder="e.g. 15000">
-          <p style="margin-top: 1rem; font-weight: 600; color: var(--cognac);">Estimated Deduction: $<span id="calcResult">0</span></p>
-        </div>
-      </div>
-      <div class="toolkit-form">
-        <p style="margin-bottom: 1.5rem; font-size: 0.95rem;">Enter your email to receive the Toolkit (Excel/Google Sheets compatible) instantly.</p>
-        <form action="https://app.kit.com/forms/9447762/subscriptions" method="post">
-          <input class="formkit-input" name="email_address" placeholder="Email Address" required type="email">
-          <button type="submit" class="formkit-submit">Get the Toolkit</button>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <section id="about">
-    <div class="section-header"><h2>About</h2><div class="section-line"></div></div>
-    <div class="about-grid">
-      <div class="about-body">
-        <p style="font-size: 1.25rem; font-style: italic; margin-bottom: 1.5rem;">Practical systems for independent business measurement.</p>
-        <p>With a background in IT and operational data, I focus on building tools that provide clarity in the gig economy. My work emphasizes structured logging and verifiable numbers to help professionals make informed decisions.</p>
-      </div>
-      <img src="author.jpg" alt="William J. Walsh" class="about-photo">
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="section-header"><h2>Contact</h2><div class="section-line"></div></div>
-    <div class="contact-grid">
-      <p style="color: rgba(255,255,255,0.7);">For bulk orders, media enquiries, or book-related questions, please reach out via the channels below.</p>
-      <div class="contact-links">
-        <a href="https://x.com/WJWalshAuthor" target="_blank" class="contact-row"><span class="contact-platform">X</span><span>@WJWalshAuthor</span></a>
-        <a href="https://www.threads.com/@wjwalsh_author" target="_blank" class="contact-row"><span class="contact-platform">Threads</span><span>@wjwalsh_author</span></a>
-        <a href="mailto:williamjwalshauthor@gmail.com" class="contact-row"><span class="contact-platform">Email</span><span>williamjwalshauthor@gmail.com</span></a>
-      </div>
-    </div>
-  </section>
-
-  <footer>&copy; 2026 William J. Walsh. Published via Amazon KDP.</footer>
-
-  <div class="mobile-sticky-bar"><a href="#books" class="btn">Browse 2026 Books</a></div>
-
-  <script>
-    document.getElementById('milesInput').addEventListener('input', function(e) {
-      const miles = e.target.value || 0;
-      document.getElementById('calcResult').innerText = (miles * 0.67).toLocaleString();
-    });
-  </script>
-</body>
-</html>
+        
