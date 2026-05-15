@@ -35,6 +35,7 @@
       font-size: 16px;
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; height: auto; }
@@ -124,6 +125,9 @@
     .toolkit-form-label { display: block; font-size: .9rem; color: var(--mid); margin-bottom: 1.2rem; line-height: 1.5; }
     .toolkit-form .formkit-submit { border-radius: 0 !important; background-color: var(--charcoal) !important; transition: background .22s !important; }
     .toolkit-form .formkit-submit:hover { background-color: var(--cognac) !important; }
+    /* Prevent Kit form from overflowing on mobile */
+    .formkit-form { min-width: 0 !important; width: 100% !important; max-width: 100% !important; }
+    .seva-form { overflow: hidden !important; }
 
     /* ─── ABOUT ──────────────────────────────────────────────── */
     .about-grid { display: grid; grid-template-columns: 1.5fr 0.5fr; gap: 4rem; align-items: start; }
@@ -406,7 +410,7 @@
       </div>
 
       <div class="faq-item">
-        <button class="faq-question">What's the difference between the Rideshare Mileage Log and the Mileage &amp; Expense Log?<span class="faq-icon">+</span></button>
+        <button class="faq-question">What's the difference between the Mileage Log and the Mileage &amp; Expense Log?<span class="faq-icon">+</span></button>
         <div class="faq-answer">The Rideshare Mileage Log is built specifically for rideshare and delivery drivers — it's compact, quarterly format, and focused on IRS-compliant mileage recording. The Mileage &amp; Expense Log is a broader standalone title for any independent worker or small business owner who needs to track both mileage and business expenses in one place. If you're a rideshare driver, the dedicated Mileage Log is the right fit. If you're a contractor, tradesperson, or run a side business, the Mileage &amp; Expense Log covers more ground.</div>
       </div>
 
