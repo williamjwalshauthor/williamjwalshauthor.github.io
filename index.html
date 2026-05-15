@@ -3,27 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Professional 2026 Rideshare Logbooks and Practical AI Guides by William J. Walsh. IRS-compliant tracking for the modern gig economy.">
-  <meta property="og:title" content="William J. Walsh — Author & Independent Publisher">
-  <meta property="og:description" content="Precision tools and guides for independent workers and rideshare professionals.">
-  <meta property="og:image" content="author.jpg"> 
-  <meta name="twitter:card" content="summary_large_image">
+  <meta name="description" content="Professional 2026 Rideshare Logbooks and Practical AI Guides by William J. Walsh. IRS-compliant tracking for the modern gig economy." />
+  <meta property="og:title" content="William J. Walsh — Author & Independent Publisher" />
+  <meta property="og:description" content="Precision tools and guides for independent workers and rideshare professionals." />
+  <meta property="og:image" content="author.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
   <title>William J. Walsh | 2026 Rideshare Logbooks & AI Guides</title>
-  
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
-  
   <style>
     /* ─── TOKENS ─────────────────────────────────────────────── */
     :root {
-      --cream:    #F9F6F0;
-      --cream2:   #F1EDE4;
-      --charcoal: #1C1C1C;
-      --mid:      #333333; 
-      --cognac:   #A0522D;
-      --border:   rgba(28,28,28,.15);
-      --serif:    'Cormorant Garamond', Georgia, serif;
-      --sans:     'DM Sans', sans-serif;
+      --cream:     #F9F6F0;
+      --cream2:    #F1EDE4;
+      --charcoal:  #1C1C1C;
+      --mid:       #5A5A54;
+      --cognac:    #A0522D;
+      --cognac-lt: #C4724A;
+      --border:    rgba(28,28,28,.12);
+      --serif:     'Cormorant Garamond', Georgia, serif;
+      --sans:      'DM Sans', sans-serif;
     }
 
     /* ─── RESET ──────────────────────────────────────────────── */
@@ -36,7 +35,6 @@
       font-size: 16px;
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
-      padding-bottom: 70px;
     }
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; height: auto; }
@@ -53,210 +51,372 @@
     }
     .nav-name { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; }
     #nav-toggle { display: none; }
-    .nav-hamburger { display: none; cursor: pointer; padding: 10px; font-size: 1.5rem; }
-    .nav-links { display: flex; gap: 2rem; }
-    .nav-links a { font-size: .85rem; font-weight: 500; text-transform: uppercase; color: var(--mid); letter-spacing: .08em; }
-
-    @media (max-width: 768px) {
-      .nav-hamburger { display: block; }
-      .nav-links {
-        display: none; position: absolute; top: 64px; left: 0; right: 0;
-        background: var(--cream); flex-direction: column; gap: 0;
-        border-bottom: 1px solid var(--border);
-      }
-      .nav-links a { padding: 1.25rem; border-bottom: 1px solid var(--border); width: 100%; text-align: center; }
-      #nav-toggle:checked ~ .nav-links { display: flex; }
+    .nav-hamburger {
+      display: none; cursor: pointer;
+      min-width: 44px; min-height: 44px;
+      align-items: center; justify-content: center;
+      font-size: 1.6rem; color: var(--charcoal);
     }
+    .nav-links { display: flex; gap: 1.8rem; }
+    .nav-links a {
+      font-size: .82rem; font-weight: 500;
+      text-transform: uppercase; letter-spacing: .08em;
+      color: var(--mid);
+      min-height: 44px; display: flex; align-items: center;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--cognac); }
 
     /* ─── SECTIONS ───────────────────────────────────────────── */
     section { padding: 5rem clamp(1.2rem, 6vw, 8rem); }
-    .section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 3.5rem; }
-    .section-header h2 { font-family: var(--serif); font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 600; }
+    .section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 3rem; }
+    .section-header h2 { font-family: var(--serif); font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 600; white-space: nowrap; }
     .section-line { flex: 1; height: 1px; background: var(--border); }
 
     /* ─── HERO ───────────────────────────────────────────────── */
-    #home { min-height: 90vh; display: flex; flex-direction: column; justify-content: center; position: relative; }
-    .hero-eyebrow { font-size: .8rem; font-weight: 500; text-transform: uppercase; color: var(--cognac); letter-spacing: .12em; margin-bottom: 1rem; }
-    .hero-name { font-family: var(--serif); font-size: clamp(3.5rem, 12vw, 8rem); font-weight: 600; line-height: 1.1; margin-bottom: 1.5rem; }
-    .hero-tagline { font-family: var(--serif); font-size: clamp(1.1rem, 3vw, 1.6rem); font-style: italic; color: var(--mid); max-width: 550px; margin-bottom: 2.5rem; }
-    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 2rem; font-size: .85rem; font-weight: 500; text-transform: uppercase; border: 1.5px solid var(--charcoal); cursor: pointer; }
+    #home {
+      min-height: 100vh;
+      display: flex; flex-direction: column; justify-content: center;
+      position: relative; overflow: hidden;
+      padding-top: 8rem;
+    }
+    .hero-rule { width: 48px; height: 2px; background: var(--cognac); margin-bottom: 1.8rem; }
+    .hero-eyebrow { font-size: .8rem; font-weight: 500; text-transform: uppercase; letter-spacing: .14em; color: var(--cognac); margin-bottom: .8rem; }
+    .hero-name { font-family: var(--serif); font-size: clamp(3.2rem, 12vw, 8rem); font-weight: 600; line-height: 1.05; margin-bottom: 1.4rem; }
+    .hero-tagline { font-family: var(--serif); font-size: clamp(1.05rem, 3vw, 1.5rem); font-style: italic; color: var(--mid); max-width: 520px; line-height: 1.5; margin-bottom: 2.4rem; }
+    .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 52px; padding: 0 2rem;
+      font-family: var(--sans); font-size: .82rem; font-weight: 500;
+      text-transform: uppercase; letter-spacing: .08em;
+      border: 1.5px solid var(--charcoal); cursor: pointer; transition: all .22s;
+    }
     .btn-primary { background: var(--charcoal); color: var(--cream); }
     .btn-primary:hover { background: var(--cognac); border-color: var(--cognac); }
-    .hero-bg-text { position: absolute; right: -2rem; bottom: -1rem; font-family: var(--serif); font-size: clamp(8rem, 22vw, 20rem); font-weight: 600; color: rgba(28,28,28,.04); pointer-events: none; }
+    .btn-outline:hover { background: var(--charcoal); color: var(--cream); }
+    .hero-bg-text { position: absolute; right: -2rem; bottom: -1rem; font-family: var(--serif); font-size: clamp(8rem, 22vw, 20rem); font-weight: 600; color: rgba(28,28,28,.04); pointer-events: none; user-select: none; line-height: 1; }
 
     /* ─── BOOKS ──────────────────────────────────────────────── */
-    .series-label { font-size: .75rem; font-weight: 500; text-transform: uppercase; color: var(--cognac); margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: .5rem; }
-    .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 4.5rem; }
+    .series-block { margin-bottom: 4rem; }
+    .series-label { font-size: .75rem; font-weight: 500; text-transform: uppercase; letter-spacing: .12em; color: var(--cognac); border-bottom: 1px solid var(--border); padding-bottom: .6rem; margin-bottom: 1.5rem; }
+    .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 1.2rem; }
     .book-card { background: var(--cream2); border: 1px solid var(--border); padding: 1.5rem; display: flex; flex-direction: column; }
-    .book-badge { font-size: .7rem; font-weight: 500; text-transform: uppercase; color: var(--cream); background: var(--cognac); padding: .3rem .6rem; margin-bottom: 1rem; width: fit-content; }
+    .book-badge { font-size: .7rem; font-weight: 500; text-transform: uppercase; color: var(--cream); background: var(--cognac); padding: .25rem .6rem; margin-bottom: 1rem; width: fit-content; }
     .book-badge.kindle { background: var(--mid); }
-    .book-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; line-height: 1.3; margin-bottom: .8rem; }
-    .book-desc { font-size: .9rem; color: var(--mid); margin-bottom: 1.5rem; flex-grow: 1; }
+    .book-badge.coming { background: var(--charcoal); }
+    .book-title { font-family: var(--serif); font-size: 1.2rem; font-weight: 600; line-height: 1.3; margin-bottom: .6rem; }
+    .book-desc { font-size: .9rem; color: var(--mid); line-height: 1.65; flex: 1; margin-bottom: 1.2rem; }
     .book-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--border); padding-top: 1rem; }
-    .book-link { font-weight: 500; text-transform: uppercase; color: var(--cognac); font-size: .8rem; min-height: 44px; display: flex; align-items: center; }
+    .book-price { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; }
+    .book-link { font-size: .78rem; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; color: var(--cognac); border-bottom: 1px solid currentColor; min-height: 44px; display: flex; align-items: center; }
+    .book-link.disabled { color: var(--mid); pointer-events: none; border-color: var(--mid); }
 
     /* ─── TOOLKIT ────────────────────────────────────────────── */
     #toolkit { background: var(--cream2); }
     .toolkit-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: start; }
-    .toolkit-tabs { list-style: none; margin: 1.5rem 0; display: flex; flex-direction: column; gap: 1.2rem; }
-    .toolkit-tabs li { font-size: 0.92rem; color: var(--mid); padding-left: 1.2rem; border-left: 2px solid var(--border); }
-    .toolkit-tabs li strong { color: var(--charcoal); display: block; }
-    .toolkit-form { padding: 2.5rem; background: var(--cream); border: 1px solid var(--border); }
-    .formkit-input { width: 100% !important; height: 48px !important; border: 1.5px solid var(--border) !important; margin-bottom: 1rem !important; padding: 0 1rem !important; }
-    .formkit-submit { width: 100% !important; background: var(--charcoal) !important; color: var(--cream) !important; height: 52px !important; text-transform: uppercase !important; border: none !important; cursor: pointer !important; font-weight: 600 !important; transition: background 0.3s; }
-    .formkit-submit:hover { background: var(--cognac) !important; }
+    .toolkit-lead { font-family: var(--serif); font-size: clamp(1.1rem, 2.5vw, 1.45rem); font-style: italic; line-height: 1.5; margin-bottom: 1.2rem; }
+    .toolkit-body { font-size: .95rem; color: var(--mid); line-height: 1.8; margin-bottom: 1rem; }
+    .toolkit-tabs { list-style: none; margin: 1.2rem 0; display: flex; flex-direction: column; gap: .8rem; }
+    .toolkit-tabs li { font-size: .9rem; color: var(--mid); padding-left: 1rem; border-left: 2px solid var(--cognac); line-height: 1.4; }
+    .toolkit-tabs li strong { display: block; color: var(--charcoal); font-size: .88rem; }
+    .toolkit-form { padding: 2rem; background: var(--cream); border: 1px solid var(--border); }
+    .toolkit-form-label { display: block; font-size: .9rem; color: var(--mid); margin-bottom: 1.2rem; line-height: 1.5; }
+    .toolkit-form .formkit-submit { border-radius: 0 !important; background-color: var(--charcoal) !important; transition: background .22s !important; }
+    .toolkit-form .formkit-submit:hover { background-color: var(--cognac) !important; }
 
     /* ─── ABOUT ──────────────────────────────────────────────── */
-    .about-grid { display: grid; grid-template-columns: 1.5fr 0.5fr; gap: 4rem; }
-    .about-photo { border: 1px solid var(--border); }
+    .about-grid { display: grid; grid-template-columns: 1.5fr 0.5fr; gap: 4rem; align-items: start; }
+    .about-lead { font-family: var(--serif); font-size: clamp(1.1rem, 2.5vw, 1.45rem); font-style: italic; line-height: 1.5; margin-bottom: 1.2rem; }
+    .about-body { font-size: .95rem; color: var(--mid); line-height: 1.8; }
+    .about-body p + p { margin-top: 1rem; }
+    .about-photo { border: 1px solid var(--border); width: 100%; }
 
     /* ─── CONTACT ────────────────────────────────────────────── */
     #contact { background: var(--charcoal); color: var(--cream); }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+    #contact .section-header h2 { color: var(--cream); }
+    #contact .section-line { background: rgba(249,246,240,.15); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+    .contact-lead { font-family: var(--serif); font-size: clamp(1.1rem, 2.5vw, 1.45rem); font-style: italic; line-height: 1.5; color: rgba(249,246,240,.75); margin-bottom: 1rem; }
+    .contact-note { font-size: .9rem; color: rgba(249,246,240,.5); line-height: 1.7; }
     .contact-links { display: flex; flex-direction: column; gap: .5rem; }
-    .contact-row { display: flex; align-items: center; min-height: 56px; padding: 0 1.2rem; border: 1px solid rgba(255,255,255,0.1); }
-    .contact-row:hover { background: rgba(255,255,255,0.05); border-color: var(--cognac-lt); }
-    .contact-platform { font-size: .75rem; text-transform: uppercase; color: var(--cognac-lt); min-width: 80px; }
+    .contact-row {
+      display: flex; align-items: center; gap: 1rem;
+      min-height: 56px; padding: 0 1.2rem;
+      border: 1px solid rgba(249,246,240,.12);
+      color: var(--cream); transition: border-color .2s, background .2s;
+    }
+    .contact-row:hover { border-color: var(--cognac-lt); background: rgba(160,82,45,.08); }
+    .contact-platform { font-size: .72rem; font-weight: 500; text-transform: uppercase; letter-spacing: .1em; color: var(--cognac-lt); min-width: 75px; }
+    .contact-handle { font-size: .9rem; color: rgba(249,246,240,.8); }
 
-    /* ─── MOBILE STICKY BAR ──────────────────────────────────── */
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer { background: #111; color: rgba(249,246,240,.3); text-align: center; padding: 2.5rem 1rem; font-size: .78rem; letter-spacing: .04em; }
+
+    /* ─── MOBILE STICKY BAR (hidden on desktop) ──────────────── */
     .mobile-sticky-bar { display: none; }
+
+    /* ─── MOBILE ─────────────────────────────────────────────── */
     @media (max-width: 768px) {
-      .mobile-sticky-bar { display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: var(--charcoal); padding: 10px; z-index: 1000; border-top: 2px solid var(--cognac); }
-      .mobile-sticky-bar .btn { width: 100%; background: var(--cognac); border: none; }
-      .about-grid, .contact-grid, .toolkit-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      body { padding-bottom: 72px; }
+
+      /* Hamburger nav */
+      .nav-hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute; top: 64px; left: 0; right: 0;
+        background: var(--cream);
+        flex-direction: column; gap: 0;
+        border-bottom: 2px solid var(--border);
+        box-shadow: 0 8px 24px rgba(0,0,0,.08);
+      }
+      .nav-links a {
+        padding: 1.1rem 1.5rem;
+        border-bottom: 1px solid var(--border);
+        justify-content: center; font-size: .9rem;
+      }
+      #nav-toggle:checked ~ .nav-links { display: flex; }
+
+      /* Sticky CTA bar */
+      .mobile-sticky-bar {
+        display: flex;
+        position: fixed; bottom: 0; left: 0; right: 0;
+        background: var(--charcoal);
+        padding: 10px 1.2rem;
+        z-index: 999;
+        border-top: 2px solid var(--cognac);
+      }
+      .mobile-sticky-bar .btn {
+        width: 100%; background: var(--cognac);
+        border-color: var(--cognac); color: var(--cream);
+        font-size: .85rem;
+      }
+
+      /* Stack all grids */
+      .about-grid,
+      .contact-grid,
+      .toolkit-grid { grid-template-columns: 1fr; gap: 2rem; }
+
+      /* Photo above text on mobile */
+      .about-grid { display: flex; flex-direction: column; }
+      .about-photo { order: -1; max-height: 280px; object-fit: cover; object-position: top; }
+
+      /* Books single column */
+      .books-grid { grid-template-columns: 1fr; }
+
+      /* Hero */
+      .hero-bg-text { display: none; }
+      .hero-cta { flex-direction: column; }
+      .hero-cta .btn { width: 100%; }
     }
 
-    footer { background: #111; color: rgba(255,255,255,.3); text-align: center; padding: 3rem 1rem; font-size: .8rem; }
+    @media (max-width: 480px) {
+      section { padding: 4rem 1.2rem; }
+      #home { padding-top: 6rem; }
+    }
   </style>
 </head>
 <body>
 
+  <!-- NAV -->
   <nav>
     <div class="nav-name">William J. Walsh</div>
-    <input type="checkbox" id="nav-toggle">
-    <label for="nav-toggle" class="nav-hamburger">☰</label>
+    <input type="checkbox" id="nav-toggle" />
+    <label for="nav-toggle" class="nav-hamburger" aria-label="Menu">☰</label>
     <div class="nav-links">
       <a href="#home">Home</a>
       <a href="#books">Books</a>
-      <a href="#toolkit">Toolkit</a>
+      <a href="#toolkit">Free Toolkit</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
 
+  <!-- HERO -->
   <section id="home">
-    <div class="hero-rule" style="width: 50px; height: 2px; background: var(--cognac); margin-bottom: 2rem;"></div>
+    <div class="hero-rule"></div>
     <p class="hero-eyebrow">Author &amp; Independent Publisher</p>
     <h1 class="hero-name">William<br>J. Walsh</h1>
-    <p class="hero-tagline">Precision tracking and strategic guides for the modern gig economy and independent professional.</p>
-    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-      <a href="#books" class="btn btn-primary">Browse 2026 Collection</a>
-      <a href="#about" class="btn btn-outline" style="border: 1.5px solid var(--charcoal);">About</a>
+    <p class="hero-tagline">Practical guides for independent workers, gig economy professionals, and people building smarter habits.</p>
+    <div class="hero-cta">
+      <a href="#books" class="btn btn-primary">Browse Books</a>
+      <a href="#about" class="btn btn-outline">About</a>
     </div>
     <div class="hero-bg-text">WJW</div>
   </section>
 
+  <!-- BOOKS -->
   <section id="books">
-    <div class="section-header"><h2>Books</h2><div class="section-line"></div></div>
-
-    <div class="series-label">Rideshare Driver's Log System</div>
-    <div class="books-grid">
-      <div class="book-card">
-        <span class="book-badge">Print</span>
-        <div class="book-title">2026 Rideshare Shift Log</div>
-        <div class="book-desc">Detailed quarterly shift tracking to capture real earnings after fuel, maintenance, and platform fees.</div>
-        <div class="book-footer"><strong>$11.99</strong><a href="https://www.amazon.com/dp/B0GXS1RXHG" target="_blank" class="book-link">Amazon →</a></div>
-      </div>
-      <div class="book-card">
-        <span class="book-badge">Print</span>
-        <div class="book-title">2026 Rideshare Mileage Log</div>
-        <div class="book-desc">IRS-compliant manual mileage tracking for tax defense and deduction verification.</div>
-        <div class="book-footer"><strong>$9.99</strong><a href="https://www.amazon.com/dp/B0GYCQQWX2" target="_blank" class="book-link">Amazon →</a></div>
-      </div>
+    <div class="section-header">
+      <h2>Books</h2>
+      <div class="section-line"></div>
     </div>
 
-    <div class="series-label">Gig Economy Standalones</div>
-    <div class="books-grid">
-      <div class="book-card">
-        <span class="book-badge">Print</span>
-        <div class="book-title">2026 Mileage &amp; Expense Log</div>
-        <div class="book-desc">A unified record-keeping system for all independent contractors and small business owners.</div>
-        <div class="book-footer"><strong>$9.99</strong><a href="https://www.amazon.com/dp/B0GW63KQ1Z" target="_blank" class="book-link">Amazon →</a></div>
-      </div>
-      <div class="book-card">
-        <span class="book-badge kindle">Kindle</span>
-        <div class="book-title">Rideshare Driver Income Guide 2026</div>
-        <div class="book-desc">The strategic blueprint for driver profitability. Moving beyond the app's limited data.</div>
-        <div class="book-footer"><strong>$0.99</strong><a href="https://www.amazon.com/dp/B0GX2ZYHSK" target="_blank" class="book-link">Amazon →</a></div>
-      </div>
-      <div class="book-card">
-        <span class="book-badge" style="background: var(--charcoal);">Soon</span>
-        <div class="book-title">What You Earned, What You Owe</div>
-        <div class="book-desc">Comprehensive 2026 tax guide covering deductions, quarterly estimates, and IRS updates.</div>
-        <div class="book-footer"><strong>2026</strong><span class="book-link" style="color:var(--mid);">Soon</span></div>
-      </div>
-    </div>
-
-    <div class="series-label">Practical AI Guides</div>
-    <div class="books-grid">
-      <div class="book-card">
-        <span class="book-badge" style="background: var(--charcoal);">Soon</span>
-        <div class="book-title">The AI Style Assistant</div>
-        <div class="book-desc">A guide to utilizing Large Language Models for wardrobe management and personal styling.</div>
-        <div class="book-footer"><strong>—</strong><span class="book-link" style="color:var(--mid);">Soon</span></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="toolkit">
-    <div class="section-header"><h2>Toolkit</h2><div class="section-line"></div></div>
-    <div class="toolkit-grid">
-      <div>
-        <p style="font-size: 1.25rem; font-style: italic; margin-bottom: 1.5rem;">The Driver Profit System: 2026 Analytical Toolkit</p>
-        <div class="about-body">
-          <p>A professional-grade companion for your manual logbooks. This tool converts raw daily tracking into actionable business data, compatible with Excel and Google Sheets.</p>
-          <ul class="toolkit-tabs">
-            <li><strong>Shift Log Analyzer</strong> — True hourly rates after real operating costs.</li>
-            <li><strong>Mileage Log Analyzer</strong> — Audits for unclaimed IRS deductions.</li>
-            <li><strong>Tax Estimator</strong> — Precision quarterly set-aside calculator.</li>
-          </ul>
+    <div class="series-block">
+      <div class="series-label">The Rideshare Driver's Log System — Series</div>
+      <div class="books-grid">
+        <div class="book-card">
+          <span class="book-badge">Print</span>
+          <div class="book-title">2026 Rideshare Shift Log — Quarterly Edition</div>
+          <div class="book-desc">Structured shift-by-shift tracking for rideshare drivers. Capture real earnings after expenses — what the app won't show you.</div>
+          <div class="book-footer">
+            <span class="book-price">$11.99</span>
+            <a href="https://www.amazon.com/dp/B0GXS1RXHG" target="_blank" class="book-link">View on Amazon →</a>
+          </div>
+        </div>
+        <div class="book-card">
+          <span class="book-badge">Print</span>
+          <div class="book-title">2026 Rideshare Mileage Log — Quarterly Edition</div>
+          <div class="book-desc">IRS-compliant mileage tracking for rideshare and delivery drivers. Every journey logged, every deduction supported.</div>
+          <div class="book-footer">
+            <span class="book-price">$9.99</span>
+            <a href="https://www.amazon.com/dp/B0GYCQQWX2" target="_blank" class="book-link">View on Amazon →</a>
+          </div>
         </div>
       </div>
+    </div>
+
+    <div class="series-block">
+      <div class="series-label">Gig Economy — Standalone Titles</div>
+      <div class="books-grid">
+        <div class="book-card">
+          <span class="book-badge">Print</span>
+          <div class="book-title">2026 Mileage &amp; Expense Log</div>
+          <div class="book-desc">A comprehensive mileage and expense tracker for any independent worker. Track deductible miles, business costs, and income in one place.</div>
+          <div class="book-footer">
+            <span class="book-price">$9.99</span>
+            <a href="https://www.amazon.com/dp/B0GW63KQ1Z" target="_blank" class="book-link">View on Amazon →</a>
+          </div>
+        </div>
+        <div class="book-card">
+          <span class="book-badge kindle">Kindle</span>
+          <div class="book-title">Rideshare Driver Income Guide 2026</div>
+          <div class="book-desc">The numbers your app won't show you. A plain-English breakdown of real rideshare earnings, expenses, and what you actually take home.</div>
+          <div class="book-footer">
+            <span class="book-price">$0.99</span>
+            <a href="https://www.amazon.com/dp/B0GX2ZYHSK" target="_blank" class="book-link">View on Amazon →</a>
+          </div>
+        </div>
+        <div class="book-card">
+          <span class="book-badge coming">Coming Soon</span>
+          <div class="book-title">What You Earned, What You Owe: A Tax Guide for Gig Drivers — 2026 Edition</div>
+          <div class="book-desc">29 chapters covering 2026 IRS figures, deductions, quarterly estimated taxes, and the latest legislative updates for independent contractors.</div>
+          <div class="book-footer">
+            <span class="book-price">2026</span>
+            <span class="book-link disabled">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="series-block">
+      <div class="series-label">Practical AI Guides</div>
+      <div class="books-grid">
+        <div class="book-card">
+          <span class="book-badge coming">Coming Soon</span>
+          <div class="book-title">The AI Style Assistant</div>
+          <div class="book-desc">How to use ChatGPT and Claude to dress better, shop smarter, and build a wardrobe that actually works.</div>
+          <div class="book-footer">
+            <span class="book-price">—</span>
+            <span class="book-link disabled">Coming Soon</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TOOLKIT -->
+  <section id="toolkit">
+    <div class="section-header">
+      <h2>Free Toolkit</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="toolkit-grid">
+      <div>
+        <p class="toolkit-lead">The Driver Profit System Toolkit — free, no strings.</p>
+        <p class="toolkit-body">A companion spreadsheet built to run alongside the logbooks. Enter your numbers and it does the rest — real hourly rate, mileage deduction value, expense breakdown, and quarterly tax estimate.</p>
+        <ul class="toolkit-tabs">
+          <li><strong>Shift Log Analyzer</strong>Your true hourly rate after real operating costs</li>
+          <li><strong>Mileage Log Analyzer</strong>What you're leaving unclaimed at the IRS rate</li>
+          <li><strong>Mileage &amp; Expense Analyzer</strong>Standard vs actual method comparison</li>
+          <li><strong>Tax Estimator</strong>Quarterly set-aside calculator</li>
+        </ul>
+        <p class="toolkit-body">Enter data only in the gold cells. Everything else calculates automatically.</p>
+      </div>
       <div class="toolkit-form">
-        <p style="margin-bottom: 1.5rem; font-size: 0.95rem;">Enter your email to receive the Toolkit instantly.</p>
-        <form action="https://app.kit.com/forms/9447762/subscriptions" method="post">
-          <input class="formkit-input" name="email_address" placeholder="Email Address" required type="email">
-          <button type="submit" class="formkit-submit">Get the Toolkit</button>
-        </form>
+        <span class="toolkit-form-label">Enter your email and the toolkit lands in your inbox immediately.</span>
+        <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
+        <form action="https://app.kit.com/forms/9447762/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="9447762" data-uid="35c38a5633" data-format="inline" data-version="5" data-options="{&quot;settings&quot;:{&quot;after_subscribe&quot;:{&quot;action&quot;:&quot;message&quot;,&quot;success_message&quot;:&quot;Success! Now check your email to confirm your subscription.&quot;,&quot;redirect_url&quot;:&quot;&quot;},&quot;analytics&quot;:{&quot;google&quot;:null,&quot;fathom&quot;:null,&quot;facebook&quot;:null,&quot;segment&quot;:null,&quot;pinterest&quot;:null,&quot;sparkloop&quot;:null,&quot;googletagmanager&quot;:null},&quot;modal&quot;:{&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;powered_by&quot;:{&quot;show&quot;:true,&quot;url&quot;:&quot;https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic&quot;},&quot;recaptcha&quot;:{&quot;enabled&quot;:false},&quot;return_visitor&quot;:{&quot;action&quot;:&quot;show&quot;,&quot;custom_content&quot;:&quot;&quot;},&quot;slide_in&quot;:{&quot;display_in&quot;:&quot;bottom_right&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;sticky_bar&quot;:{&quot;display_in&quot;:&quot;top&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15}},&quot;version&quot;:&quot;5&quot;}" min-width="400 500 600 700 800"><div data-style="clean"><ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul><div data-element="fields" data-stacked="false" class="seva-fields formkit-fields"><div class="formkit-field"><input class="formkit-input" name="email_address" aria-label="Email Address" placeholder="Email Address" required="" type="email" style="color: rgb(0, 0, 0); border-color: rgb(227, 227, 227); border-radius: 4px; font-weight: 400;"></div><button data-element="submit" class="formkit-submit formkit-submit" style="color: rgb(255, 255, 255); background-color: rgb(22, 119, 190); border-radius: 4px; font-weight: 400;"><div class="formkit-spinner"><div></div><div></div><div></div></div><span class="">Send me the Toolkit</span></button></div><div class="formkit-powered-by-convertkit-container"><a href="https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic" data-element="powered-by" class="formkit-powered-by-convertkit" data-variant="dark" target="_blank" rel="nofollow noopener">Built with Kit</a></div></div></form>
       </div>
     </div>
   </section>
 
+  <!-- ABOUT -->
   <section id="about">
-    <div class="section-header"><h2>About</h2><div class="section-line"></div></div>
+    <div class="section-header">
+      <h2>About</h2>
+      <div class="section-line"></div>
+    </div>
     <div class="about-grid">
-      <div class="about-body">
-        <p style="font-size: 1.25rem; font-style: italic; margin-bottom: 1.5rem;">Technical systems for independent professionals.</p>
-        <p>With a background in IT and operational data, I focus on building tools that provide clarity in the gig economy. My work emphasizes structured logging and verifiable numbers to help business owners make informed decisions.</p>
+      <div>
+        <p class="about-lead">I write practical guides for people who work independently and want to measure, track, and understand their business better.</p>
+        <div class="about-body">
+          <p>My background is in IT, cybersecurity, and operational data — which shapes how I approach every book I write. I don't believe in vague advice. I believe in systems: structured logs, clear numbers, and tools that give you the information to make better decisions.</p>
+          <p>The Rideshare Driver's Log System came from a simple observation: drivers aren't under-earning — they're under-measuring. The same principle drives everything I publish, whether it's a mileage log, a tax guide, or an AI assistant for your wardrobe.</p>
+        </div>
       </div>
-      <img src="author.jpg" alt="William J. Walsh" class="about-photo">
+      <img src="author.jpg" alt="William J. Walsh" class="about-photo" />
     </div>
   </section>
 
+  <!-- CONTACT -->
   <section id="contact">
-    <div class="section-header"><h2>Contact</h2><div class="section-line"></div></div>
+    <div class="section-header">
+      <h2>Contact</h2>
+      <div class="section-line"></div>
+    </div>
     <div class="contact-grid">
-      <p style="color: rgba(255,255,255,0.7);">For bulk orders, media enquiries, or book-related questions, please reach out via the channels below.</p>
+      <div>
+        <p class="contact-lead">Questions about a book, bulk orders, or media enquiries — get in touch.</p>
+        <p class="contact-note">I'm also active on social media, sharing data-driven content for rideshare drivers and independent workers.</p>
+      </div>
       <div class="contact-links">
-        <a href="https://x.com/WJWalshAuthor" target="_blank" class="contact-row"><span class="contact-platform">X</span><span>@WJWalshAuthor</span></a>
-        <a href="https://www.threads.com/@wjwalsh_author" target="_blank" class="contact-row"><span class="contact-platform">Threads</span><span>@wjwalsh_author</span></a>
-        <a href="mailto:williamjwalshauthor@gmail.com" class="contact-row"><span class="contact-platform">Email</span><span>williamjwalshauthor@gmail.com</span></a>
+        <a href="https://x.com/WJWalshAuthor" target="_blank" class="contact-row">
+          <span class="contact-platform">X / Twitter</span>
+          <span class="contact-handle">@WJWalshAuthor</span>
+        </a>
+        <a href="https://www.threads.com/@wjwalsh_author" target="_blank" class="contact-row">
+          <span class="contact-platform">Threads</span>
+          <span class="contact-handle">@wjwalsh_author</span>
+        </a>
+        <a href="mailto:williamjwalshauthor@gmail.com" class="contact-row">
+          <span class="contact-platform">Email</span>
+          <span class="contact-handle">williamjwalshauthor@gmail.com</span>
+        </a>
       </div>
     </div>
   </section>
 
-  <footer>&copy; 2026 William J. Walsh. Published via Amazon KDP.</footer>
-  <div class="mobile-sticky-bar"><a href="#books" class="btn">Browse 2026 Collection</a></div>
+  <!-- FOOTER -->
+  <footer>&copy; 2026 William J. Walsh. All rights reserved. Published independently via Amazon KDP.</footer>
+
+  <!-- MOBILE STICKY BAR -->
+  <div class="mobile-sticky-bar">
+    <a href="#toolkit" class="btn">Get the Free Toolkit</a>
+  </div>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+      anchor.addEventListener('click', function(e) {
+        var href = this.getAttribute('href');
+        if (href === '#') return;
+        e.preventDefault();
+        var target = document.querySelector(href);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        document.getElementById('nav-toggle').checked = false;
+      });
+    });
+  </script>
 
 </body>
 </html>
