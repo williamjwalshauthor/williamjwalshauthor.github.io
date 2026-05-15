@@ -297,4 +297,59 @@
     </div>
     <div class="about-grid">
       <div>
-        <p class="about-lead">I write practical guides for independent professionals who want to measure, track
+        <p class="about-lead">I write practical guides for independent professionals who want to measure, track, and understand their business.</p>
+        <div class="about-body">
+          <p>My background is in IT and operational data — which shapes how I approach every book. I believe in systems: structured logs, clear numbers, and tools that help you make better decisions.</p>
+          <p>I publish independently under two imprints: practical tracking tools for gig economy workers and Practical AI Guides for real-world automation.</p>
+        </div>
+      </div>
+      <img src="author.jpg" alt="William J. Walsh" class="about-photo" />
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="section-header">
+      <h2>Contact</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <p class="contact-lead">Questions about books, bulk orders, or media enquiries?</p>
+        <p style="font-size: 0.9rem; margin-top: 1rem; color: rgba(249,246,240,.6);">I share data-driven content for independent workers on social media daily.</p>
+      </div>
+      <div class="contact-links">
+        <a href="https://x.com/WJWalshAuthor" target="_blank" class="contact-row">
+          <span class="contact-platform">X</span>
+          <span class="contact-handle">@WJWalshAuthor</span>
+        </a>
+        <a href="https://www.threads.com/@wjwalsh_author" target="_blank" class="contact-row">
+          <span class="contact-platform">Threads</span>
+          <span class="contact-handle">@wjwalsh_author</span>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61574275686596" target="_blank" class="contact-row">
+          <span class="contact-platform">Facebook</span>
+          <span class="contact-handle">WJ Walsh Author</span>
+        </a>
+        <a href="mailto:williamjwalshauthor@gmail.com" class="contact-row">
+          <span class="contact-platform">Email</span>
+          <span class="contact-handle">williamjwalshauthor@gmail.com</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2026 William J. Walsh. Published independently via Amazon KDP.
+  </footer>
+
+  <script>
+    // Deduction Estimator Logic
+    document.getElementById('milesInput').addEventListener('input', function(e) {
+      const miles = e.target.value || 0;
+      const deduction = (miles * 0.67).toLocaleString(); // 2024-25 reference rate
+      document.getElementById('calcResult').innerText = deduction;
+    });
+  </script>
+
+</body>
+</html>
