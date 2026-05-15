@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="description" content="Professional 2026 Rideshare Logbooks and Practical AI Guides by William J. Walsh. IRS-compliant tracking for the modern gig economy.">
-<meta property="og:title" content="William J. Walsh — Author & Independent Publisher">
-<meta property="og:description" content="Precision tools and guides for independent workers and rideshare professionals.">
-<meta property="og:image" content="author.jpg"> 
-<meta name="twitter:card" content="summary_large_image">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>William J. Walsh | 2026 Rideshare Logbooks & AI Guides</title>
+  <meta name="description" content="Professional 2026 Rideshare Logbooks and Practical AI Guides by William J. Walsh. IRS-compliant tracking for the modern gig economy.">
+  
+  <meta property="og:title" content="William J. Walsh — Author & Independent Publisher">
+  <meta property="og:description" content="Precision tools and guides for independent workers and rideshare professionals.">
+  <meta property="og:image" content="author.jpg"> 
+  <meta name="twitter:card" content="summary_large_image">
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+
   <style>
-    /* ─── TOKENS ─────────────────────────────────────────────── */
+    /* ─── TOKENS & RESET ─────────────────────────────────────── */
     :root {
       --cream:    #F9F6F0;
       --cream2:   #F1EDE4;
@@ -25,7 +28,6 @@
       --sans:     'DM Sans', sans-serif;
     }
 
-    /* ─── RESET ──────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -35,6 +37,7 @@
       font-size: 16px;
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
+      padding-bottom: 70px; /* Space for mobile sticky bar */
     }
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
@@ -46,615 +49,240 @@
       backdrop-filter: blur(8px);
       border-bottom: 1px solid var(--border);
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      padding: 0 clamp(1rem, 5vw, 4rem);
       height: 62px;
     }
-    .nav-name {
-      font-family: var(--serif);
-      font-size: 1.2rem;
-      letter-spacing: .02em;
-    }
-    .nav-links { display: flex; gap: 2.2rem; }
-    .nav-links a {
-      font-size: .82rem;
-      font-weight: 500;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--mid);
-      transition: color .2s;
-    }
-    .nav-links a:hover { color: var(--cognac); }
+    .nav-name { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; }
+    .nav-links { display: flex; gap: clamp(1rem, 3vw, 2.2rem); }
+    .nav-links a { font-size: .75rem; font-weight: 500; text-transform: uppercase; color: var(--mid); letter-spacing: .05em; }
 
-    /* ─── HERO ───────────────────────────────────────────────── */
+    /* ─── HERO & BADGES ──────────────────────────────────────── */
     #home {
-      min-height: 100vh;
+      min-height: 90vh;
       display: flex; flex-direction: column;
       justify-content: center;
-      padding: 8rem clamp(1.5rem, 8vw, 8rem) 5rem;
+      padding: 8rem clamp(1.5rem, 8vw, 8rem) 4rem;
       position: relative;
-      overflow: hidden;
     }
-    .hero-rule {
-      width: 48px; height: 2px;
-      background: var(--cognac);
-      margin-bottom: 2rem;
-      animation: slideIn .8s ease both;
+    .hero-name { font-family: var(--serif); font-size: clamp(3rem, 12vw, 7rem); line-height: 0.9; margin-bottom: 1.5rem; }
+    .hero-tagline { font-family: var(--serif); font-size: 1.3rem; font-style: italic; color: var(--mid); max-width: 500px; }
+    
+    .trust-badges {
+      display: flex; gap: 2rem; margin-top: 3rem; flex-wrap: wrap;
     }
-    .hero-eyebrow {
-      font-family: var(--sans);
-      font-size: .78rem;
-      font-weight: 500;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-      color: var(--cognac);
-      margin-bottom: .8rem;
-      animation: fadeUp .8s .1s ease both;
-    }
-    .hero-name {
-      font-family: var(--serif);
-      font-size: clamp(3.5rem, 10vw, 8rem);
-      font-weight: 600;
-      line-height: 1.0;
-      letter-spacing: -.01em;
-      margin-bottom: 1.6rem;
-      animation: fadeUp .8s .2s ease both;
-    }
-    .hero-tagline {
-      font-family: var(--serif);
-      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-      font-style: italic;
-      color: var(--mid);
-      max-width: 520px;
-      line-height: 1.5;
-      animation: fadeUp .8s .35s ease both;
-    }
-    .hero-cta {
-      margin-top: 2.8rem;
-      display: flex; gap: 1rem; flex-wrap: wrap;
-      animation: fadeUp .8s .5s ease both;
-    }
-    .btn {
-      display: inline-block;
-      padding: .75rem 1.8rem;
-      font-family: var(--sans);
-      font-size: .82rem;
-      font-weight: 500;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      border: 1.5px solid var(--charcoal);
-      transition: all .22s;
-      cursor: pointer;
-    }
-    .btn-primary {
-      background: var(--charcoal);
-      color: var(--cream);
-    }
-    .btn-primary:hover { background: var(--cognac); border-color: var(--cognac); }
-    .btn-outline:hover { background: var(--charcoal); color: var(--cream); }
-    .hero-bg-text {
-      position: absolute;
-      right: -2rem; bottom: -1rem;
-      font-family: var(--serif);
-      font-size: clamp(8rem, 22vw, 20rem);
-      font-weight: 600;
-      color: rgba(28,28,28,.04);
-      line-height: 1;
-      pointer-events: none;
-      user-select: none;
-    }
+    .badge { display: flex; align-items: center; gap: 0.8rem; font-size: 0.85rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.05em; color: var(--cognac); }
+    .badge svg { width: 18px; height: 18px; fill: currentColor; }
 
-    /* ─── SECTION SHELL ──────────────────────────────────────── */
-    section {
-      padding: 6rem clamp(1.5rem, 8vw, 8rem);
-    }
-    .section-header {
-      display: flex; align-items: center; gap: 1.2rem;
-      margin-bottom: 3.5rem;
-    }
-    .section-header h2 {
-      font-family: var(--serif);
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 600;
-    }
-    .section-line {
-      flex: 1; height: 1px;
-      background: var(--border);
-    }
-
-    /* ─── ABOUT ──────────────────────────────────────────────── */
-    #about { background: var(--cream2); }
-    .about-grid {
+    /* ─── LOGIC GRID ─────────────────────────────────────────── */
+    .logic-grid {
       display: grid;
-      grid-template-columns: 1.5fr 0.5fr;
-      gap: 4rem;
-      align-items: start;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px; background: var(--border);
+      margin-top: 4rem;
     }
-    .about-lead {
-      font-family: var(--serif);
-      font-size: clamp(1.2rem, 2.5vw, 1.55rem);
-      font-style: italic;
-      line-height: 1.5;
-      color: var(--charcoal);
-      margin-bottom: 1.5rem;
+    .logic-item { background: var(--cream); padding: 2rem; }
+    .logic-item h4 { font-size: 0.8rem; text-transform: uppercase; color: var(--mid); margin-bottom: 0.5rem; }
+    .logic-item p { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; }
+
+    /* ─── CALCULATOR ─────────────────────────────────────────── */
+    .calc-box {
+      margin-top: 2rem; padding: 1.5rem;
+      background: var(--cream); border: 1px solid var(--border);
     }
-    .about-body {
-      font-size: .95rem;
-      color: var(--mid);
-      line-height: 1.8;
+    .calc-input {
+      width: 100%; padding: 12px; border: 1px solid var(--border);
+      background: transparent; font-family: var(--sans); margin: 1rem 0;
     }
-    .about-body p + p { margin-top: 1rem; }
-    .about-photo {
-      width: 100%;
-      height: auto;
-      border: 1px solid var(--border);
-      filter: grayscale(15%);
-      display: block;
-    }
+    .calc-result { font-family: var(--serif); font-size: 1.5rem; font-weight: 600; color: var(--cognac); }
 
     /* ─── BOOKS ──────────────────────────────────────────────── */
-    #books {}
-    .series-block { margin-bottom: 4rem; }
-    .series-label {
-      font-size: .75rem;
-      font-weight: 500;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--cognac);
-      margin-bottom: 1rem;
-      padding-bottom: .6rem;
-      border-bottom: 1px solid var(--border);
-    }
     .books-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 1.5rem;
     }
     .book-card {
-      background: var(--cream2);
-      border: 1px solid var(--border);
-      padding: 2rem;
-      display: flex; flex-direction: column;
-      transition: transform .2s, box-shadow .2s;
+      background: var(--cream2); border: 1px solid var(--border);
+      padding: 2rem; display: flex; flex-direction: column;
+      transition: transform .2s;
     }
-    .book-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 32px rgba(28,28,28,.08);
+    .book-card:hover { transform: translateY(-4px); }
+    .book-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; margin: 1rem 0; }
+    .btn-book {
+      display: block; width: 100%; text-align: center;
+      padding: 0.8rem; background: var(--charcoal); color: var(--cream);
+      font-size: 0.8rem; font-weight: 500; text-transform: uppercase; margin-top: auto;
     }
-    .book-badge {
-      font-size: .7rem;
-      font-weight: 500;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--cream);
-      background: var(--cognac);
-      display: inline-block;
-      padding: .25rem .65rem;
-      margin-bottom: 1rem;
-      align-self: flex-start;
-    }
-    .book-badge.kindle { background: var(--mid); }
-    .book-badge.coming { background: var(--charcoal); }
-    .book-title {
-      font-family: var(--serif);
-      font-size: 1.25rem;
-      font-weight: 600;
-      line-height: 1.3;
-      margin-bottom: .6rem;
-    }
-    .book-desc {
-      font-size: .87rem;
-      color: var(--mid);
-      line-height: 1.65;
-      flex: 1;
-      margin-bottom: 1.4rem;
-    }
-    .book-footer {
-      display: flex; justify-content: space-between; align-items: center;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border);
-    }
-    .book-price {
-      font-family: var(--serif);
-      font-size: 1.1rem;
-      font-weight: 600;
-    }
-    .book-link {
-      font-size: .75rem;
-      font-weight: 500;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--cognac);
-      border-bottom: 1px solid currentColor;
-      padding-bottom: .1rem;
-      transition: color .2s;
-    }
-    .book-link:hover { color: var(--charcoal); }
-    .book-link.disabled { color: var(--mid); pointer-events: none; border-color: var(--mid); }
+    .btn-book:hover { background: var(--cognac); }
 
-    /* ─── TOOLKIT (Fixed & Cleaned) ─────────────────────────── */
+    /* ─── TOOLKIT & FORM ─────────────────────────────────────── */
     #toolkit { background: var(--cream2); }
+    .toolkit-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; }
+    .toolkit-form { padding: 2.5rem; background: var(--cream); border: 1px solid var(--border); }
     
-    .toolkit-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: clamp(2rem, 5vw, 4rem);
-      align-items: center; /* Better vertical alignment */
+    .formkit-input { width: 100% !important; padding: 0.8rem !important; margin-bottom: 0.8rem !important; border: 1px solid var(--border) !important; }
+    .formkit-submit { 
+      width: 100% !important; background: var(--charcoal) !important; color: var(--cream) !important;
+      padding: 1rem !important; border: none !important; text-transform: uppercase !important; 
+      font-weight: 600 !important; cursor: pointer; transition: 0.3s !important;
     }
+    .formkit-submit:hover { background: var(--cognac) !important; color: var(--cream) !important; }
 
-    .toolkit-tabs {
-      list-style: none;
-      margin: 1.5rem 0;
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+    /* ─── STICKY MOBILE BAR ──────────────────────────────────── */
+    .mobile-sticky-bar {
+      display: none; position: fixed; bottom: 0; left: 0; right: 0;
+      background: var(--charcoal); padding: 1rem; z-index: 1000;
+      border-top: 1px solid var(--cognac);
     }
-
-    .toolkit-tabs li {
-      font-size: 0.92rem;
-      color: var(--mid);
-      padding-left: 1.2rem;
-      border-left: 2px solid var(--border);
-    }
-
-    .toolkit-tabs li strong {
-      color: var(--charcoal);
-      display: block;
-      margin-bottom: 2px;
-    }
-
-    .toolkit-note {
-      font-size: 0.88rem;
-      border-left: 3px solid var(--cognac);
-      padding: 1rem 1.2rem;
-      background: rgba(28,28,28,0.03);
-      margin-top: 2rem;
-      color: var(--charcoal);
-      line-height: 1.6;
-    }
-
-    .toolkit-form {
-      padding: 2.5rem;
-      background: var(--cream);
-      border: 1px solid var(--border);
-    }
-
-    /* ConvertKit Form Fixes */
-    .formkit-submit {
-      width: 100% !important;
-      background-color: var(--charcoal) !important;
-      color: var(--cream) !important;
-      font-family: var(--sans) !important;
-      text-transform: uppercase !important;
-      letter-spacing: .08em !important;
-      border-radius: 0 !important;
-      padding: 1rem !important;
-      border: none !important;
-      transition: all 0.3s ease !important;
-      cursor: pointer !important;
-    }
-
-    /* THE FIX: Ensure text is readable on hover */
-    .formkit-submit:hover {
-      background-color: var(--cognac) !important;
-      color: var(--cream) !important; 
-    }
-
-    .formkit-input {
-      border-radius: 0 !important;
-      border: 1px solid var(--border) !important;
-      font-family: var(--sans) !important;
-      padding: 0.8rem !important;
-      width: 100% !important;
-      margin-bottom: 0.5rem !important;
-    }
-
-    /* ─── CONTACT ────────────────────────────────────────────── */
-    #contact { background: var(--charcoal); color: var(--cream); }
-    #contact .section-header h2 { color: var(--cream); }
-    #contact .section-line { background: rgba(249,246,240,.15); }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-    .contact-lead {
-      font-family: var(--serif);
-      font-size: clamp(1.1rem, 2.5vw, 1.5rem);
-      font-style: italic;
-      line-height: 1.5;
-      color: rgba(249,246,240,.75);
-      margin-bottom: 1.5rem;
-    }
-    .contact-note {
-      font-size: .9rem;
-      color: rgba(249,246,240,.55);
-      line-height: 1.7;
-    }
-    .contact-links { display: flex; flex-direction: column; gap: .8rem; }
-    .contact-row {
-      display: flex; align-items: center; gap: 1rem;
-      padding: 1rem 1.2rem;
-      border: 1px solid rgba(249,246,240,.12);
-      color: var(--cream);
-      transition: border-color .2s, background .2s;
-    }
-    .contact-row:hover {
-      border-color: var(--cognac-lt);
-      background: rgba(160,82,45,.08);
-    }
-    .contact-platform {
-      font-size: .75rem;
-      font-weight: 500;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: var(--cognac-lt);
-      min-width: 70px;
-    }
-    .contact-handle {
-      font-size: .9rem;
-      color: rgba(249,246,240,.8);
-    }
-
-    /* ─── FOOTER ─────────────────────────────────────────────── */
-    footer {
-      background: #111;
-      color: rgba(249,246,240,.35);
-      text-align: center;
-      padding: 2rem;
-      font-size: .78rem;
-      letter-spacing: .04em;
-    }
-
-    /* ─── ANIMATIONS ─────────────────────────────────────────── */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes slideIn {
-      from { width: 0; }
-      to   { width: 48px; }
-    }
-
+    
     /* ─── RESPONSIVE ─────────────────────────────────────────── */
     @media (max-width: 720px) {
-      .about-grid, .toolkit-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-      .nav-links { gap: 1.2rem; }
-      .hero-bg-text { display: none; }
+      .toolkit-grid, .about-grid, .contact-grid, .logic-grid { grid-template-columns: 1fr; }
+      .hero-name { font-size: 4rem; }
+      .mobile-sticky-bar { display: block; }
+      .nav-links { display: none; } /* Focus user on the page flow */
     }
-    @media (max-width: 480px) {
-      .nav-links a { font-size: .72rem; }
-    }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideIn { from { width: 0; } to { width: 48px; } }
   </style>
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <div class="nav-name">William J. Walsh</div>
     <div class="nav-links">
-      <a href="#home">Home</a>
       <a href="#books">Books</a>
-      <a href="#toolkit">Free Toolkit</a>
+      <a href="#toolkit">Toolkit</a>
       <a href="#about">About</a>
       <a href="#contact">Contact</a>
     </div>
   </nav>
 
-  <!-- HERO -->
   <section id="home">
-    <div class="hero-rule"></div>
-    <p class="hero-eyebrow">Author &amp; Independent Publisher</p>
+    <div class="hero-rule" style="width: 48px; height: 2px; background: var(--cognac); margin-bottom: 2rem;"></div>
+    <p class="hero-eyebrow" style="text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.1em; color: var(--cognac);">Author & Independent Publisher</p>
     <h1 class="hero-name">William<br>J. Walsh</h1>
-    <p class="hero-tagline">Practical guides for independent workers, gig economy professionals, and people building smarter habits.</p>
-    <div class="hero-cta">
-      <a href="#books" class="btn btn-primary">Browse Books</a>
-      <a href="#about" class="btn btn-outline">About the Author</a>
+    <p class="hero-tagline">Precision tools and strategic guides for the 2026 gig economy.</p>
+    
+    <div class="trust-badges">
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5zm-2 16l-4-4 1.41-1.41L10 15.17l7.59-7.59L19 9l-9 9z"/></svg>
+        IRS 2026 Ready
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zM9 8V6c0-1.66 1.34-3 3-3s3 1.34 3 3v2H9z"/></svg>
+        Audit Protected
+      </div>
+      <div class="badge">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14.5v-9l6 4.5-6 4.5z"/></svg>
+        Zero-Data Risk
+      </div>
     </div>
-    <div class="hero-bg-text">WJW</div>
+
+    <div class="logic-grid">
+      <div class="logic-item">
+        <h4>The Digital Problem</h4>
+        <p>Apps crash, batteries die, and personal data is harvested.</p>
+      </div>
+      <div class="logic-item">
+        <h4>The Analog Solution</h4>
+        <p>100% Reliability. Permanent physical records. No tracking.</p>
+      </div>
+    </div>
   </section>
 
-  <!-- BOOKS -->
   <section id="books">
     <div class="section-header">
-      <h2>Books</h2>
-      <div class="section-line"></div>
+      <h2>2026 Collection</h2>
+      <div class="section-line" style="flex:1; height:1px; background:var(--border); margin-left:1rem;"></div>
     </div>
-
-    <!-- Series: The Rideshare Driver's Log System -->
-    <div class="series-block">
-      <div class="series-label">The Rideshare Driver's Log System — Series</div>
-      <div class="books-grid">
-
-        <div class="book-card">
-          <span class="book-badge">Print</span>
-          <div class="book-title">2026 Rideshare Shift Log — Quarterly Edition</div>
-          <div class="book-desc">A structured shift-by-shift tracking system for rideshare drivers. Built to capture what your app doesn't — real earnings after expenses, per-shift.</div>
-          <div class="book-footer">
-            <span class="book-price">$11.99</span>
-            <a href="https://www.amazon.com/dp/B0GXS1RXHG" target="_blank" class="book-link">View on Amazon →</a>
-          </div>
-        </div>
-
-        <div class="book-card">
-          <span class="book-badge">Print</span>
-          <div class="book-title">2026 Rideshare Mileage Log — Quarterly Edition</div>
-          <div class="book-desc">IRS-compliant mileage tracking for rideshare and delivery drivers. Every journey logged, every deduction supported — quarterly format for manageable record-keeping.</div>
-          <div class="book-footer">
-            <span class="book-price">$9.99</span>
-            <a href="https://www.amazon.com/dp/B0GYCQQWX2" target="_blank" class="book-link">View on Amazon →</a>
-          </div>
-        </div>
-
+    <div class="books-grid">
+      <div class="book-card">
+        <span class="book-badge" style="background:var(--cognac); color:white; padding:4px 8px; font-size:0.7rem; align-self:start;">PRINT</span>
+        <h3 class="book-title">2026 Rideshare Shift Log</h3>
+        <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">The professional standard for tracking hourly earnings and real-time operating costs.</p>
+        <a href="https://www.amazon.com/dp/B0GXS1RXHG" target="_blank" class="btn-book">View on Amazon</a>
+      </div>
+      <div class="book-card">
+        <span class="book-badge" style="background:var(--cognac); color:white; padding:4px 8px; font-size:0.7rem; align-self:start;">PRINT</span>
+        <h3 class="book-title">2026 Mileage Log</h3>
+        <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">IRS-compliant manual tracking for rideshare and delivery professionals.</p>
+        <a href="https://www.amazon.com/dp/B0GYCQQWX2" target="_blank" class="btn-book">View on Amazon</a>
+      </div>
+      <div class="book-card">
+        <span class="book-badge" style="background:var(--mid); color:white; padding:4px 8px; font-size:0.7rem; align-self:start;">KINDLE</span>
+        <h3 class="book-title">Rideshare Income Guide</h3>
+        <p style="font-size: 0.9rem; margin-bottom: 1.5rem;">Strategic breakdown of 2026 earnings, tax strategies, and algorithm management.</p>
+        <a href="https://www.amazon.com/dp/B0GX2ZYHSK" target="_blank" class="btn-book">View on Amazon</a>
       </div>
     </div>
-
-    <!-- Standalone: Gig Economy -->
-    <div class="series-block">
-      <div class="series-label">Gig Economy — Standalone Titles</div>
-      <div class="books-grid">
-
-        <div class="book-card">
-          <span class="book-badge">Print</span>
-          <div class="book-title">2026 Mileage &amp; Expense Log</div>
-          <div class="book-desc">A comprehensive mileage and expense tracker for any independent worker. Track deductible miles, business costs, and income in one place.</div>
-          <div class="book-footer">
-            <span class="book-price">$9.99</span>
-            <a href="https://www.amazon.com/dp/B0GW63KQ1Z" target="_blank" class="book-link">View on Amazon →</a>
-          </div>
-        </div>
-
-        <div class="book-card">
-          <span class="book-badge kindle">Kindle</span>
-          <div class="book-title">Rideshare Driver Income Guide 2026</div>
-          <div class="book-desc">The numbers your app won't show you. A plain-English breakdown of real rideshare earnings, expenses, and what you actually take home.</div>
-          <div class="book-footer">
-            <span class="book-price">$0.99</span>
-            <a href="https://www.amazon.com/dp/B0GX2ZYHSK" target="_blank" class="book-link">View on Amazon →</a>
-          </div>
-        </div>
-
-        <div class="book-card">
-          <span class="book-badge coming">Coming Soon</span>
-          <div class="book-title">What You Earned, What You Owe: A Tax Guide for Gig Drivers — 2026 Edition</div>
-          <div class="book-desc">29 chapters covering 2026 IRS figures, deductions, quarterly estimated taxes, and the latest legislative updates for independent contractors.</div>
-          <div class="book-footer">
-            <span class="book-price">2026</span>
-            <span class="book-link disabled">Coming Soon</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Series: Practical AI Guides -->
-    <div class="series-block">
-      <div class="series-label">Practical AI Guides</div>
-      <div class="books-grid">
-
-        <div class="book-card">
-          <span class="book-badge coming">Coming Soon</span>
-          <div class="book-title">The AI Style Assistant</div>
-          <div class="book-desc">How to use ChatGPT and Claude to dress better, shop smarter, and build a wardrobe that actually works. A practical guide for using AI as your personal style consultant.</div>
-          <div class="book-footer">
-            <span class="book-price">—</span>
-            <span class="book-link disabled">Coming Soon</span>
-          </div>
-        </div>
-
-
-
-      </div>
-    </div>
-
   </section>
 
-  <!-- TOOLKIT -->
-    <section id="toolkit">
-    <div class="section-header">
-      <h2>Free Toolkit</h2>
-      <div class="section-line"></div>
-    </div>
+  <section id="toolkit">
     <div class="toolkit-grid">
       <div class="toolkit-info">
-        <p class="about-lead">The Driver Profit System: 2026 Analytical Toolkit</p>
-        <div class="about-body">
-          <p>A professional-grade companion for your manual logbooks. This tool is designed to convert your raw daily tracking into actionable business data, compatible with Excel and Google Sheets.</p>
-          
-          <ul class="toolkit-tabs">
-            <li><strong>Shift Log Analyzer</strong> — Calculates your true hourly rate by subtracting real-time operating costs from gross earnings.</li>
-            <li><strong>Mileage Log Analyzer</strong> — Audits your journeys to ensure no IRS-eligible deductions remain unclaimed.</li>
-            <li><strong>Expense Comparison</strong> — A side-by-side analysis of the Standard Mileage Rate vs. Actual Expense method.</li>
-            <li><strong>Tax Estimator</strong> — Precision calculator for quarterly estimated tax set-asides based on 2026 figures.</li>
-          </ul>
-
-          <div class="toolkit-note">
-            <strong>Technical Note:</strong> Built for cross-platform utility on mobile and desktop. To preserve formula integrity, data entry is restricted to the highlighted gold cells.
-          </div>
+        <h2>Free Analytical Toolkit</h2>
+        <p style="margin-top:1rem;">Professional Excel/Google Sheets companions for your physical logs.</p>
+        
+        <div class="calc-box">
+          <strong>2026 Deduction Estimator</strong>
+          <p style="font-size:0.8rem; margin-top:0.5rem;">Enter your annual estimated miles:</p>
+          <input type="number" id="milesInput" class="calc-input" placeholder="e.g. 20000">
+          <div class="calc-result">Est. Deduction: $<span id="calcResult">0</span></div>
+          <p style="font-size:0.7rem; margin-top:0.5rem; color:var(--mid);">*Based on estimated 2026 IRS Standard Mileage Rates.</p>
         </div>
       </div>
       
       <div class="toolkit-form">
-        <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
-        <form action="https://app.kit.com/forms/9447762/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="9447762" data-uid="35c38a5633" data-format="inline" data-version="5">
-          <div data-style="clean">
-            <ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul>
-            <div data-element="fields" data-stacked="false" class="seva-fields formkit-fields">
-              <div class="formkit-field">
-                <input class="formkit-input" name="email_address" aria-label="Email Address" placeholder="Email Address" required="" type="email" style="color: rgb(0, 0, 0); border-color: rgb(227, 227, 227); border-radius: 4px; font-weight: 400;">
-              </div>
-              <button data-element="submit" class="formkit-submit formkit-submit">
-                <div class="formkit-spinner"><div></div><div></div><div></div></div>
-                <span>Send me the Toolkit</span>
-              </button>
-            </div>
-            <p style="font-size: 0.7rem; color: var(--mid); margin-top: 1rem; text-align: center;">Your toolkit arrives via email immediately upon confirmation.</p>
-          </div>
+        <form action="https://app.kit.com/forms/9447762/subscriptions" method="post">
+          <input class="formkit-input" name="email_address" placeholder="Email Address" required type="email">
+          <button type="submit" class="formkit-submit">Send me the Toolkit</button>
         </form>
       </div>
     </div>
   </section>
 
-
   <section id="about">
-    <div class="section-header">
-      <h2>About</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="about-grid">
+    <div class="about-grid" style="display:grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem;">
       <div>
-        <p class="about-lead">I write practical guides for people who work independently and want to measure, track, and understand their business better.</p>
-        <div class="about-body">
-          <p>My background is in IT, cybersecurity, and operational data — which shapes how I approach every book I write. I don't believe in vague advice. I believe in systems: structured logs, clear numbers, and tools that give you the information to make better decisions.</p>
-          <p>The Rideshare Driver's Log System came from a simple observation: drivers aren't under-earning — they're under-measuring. The same principle drives everything I publish, whether it's a mileage log, a tax guide, or an AI assistant for your wardrobe.</p>
-          <p>I publish independently under the William J. Walsh name across two imprints: practical tracking tools for gig economy workers, and Practical AI Guides — accessible books for people who want to use AI tools in their real lives without the hype.</p>
-        </div>
+        <h2>Author Bio</h2>
+        <p style="font-family: var(--serif); font-size: 1.4rem; font-style: italic; margin-top: 1rem;">"Drivers aren't under-earning—they are under-measuring."</p>
+        <p style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--mid);">William J. Walsh is a technical author with a background in IT and Cybersecurity. His work focuses on creating grounded, verifiable systems for independent workers who value quality over speed.</p>
       </div>
-      <img src="author.jpg" alt="William J. Walsh" class="about-photo" />
+      <img src="author.jpg" alt="William J. Walsh" style="border: 1px solid var(--border); filter: grayscale(100%);">
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="section-header">
-      <h2>Contact</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="contact-grid">
+  <section id="contact" style="background:var(--charcoal); color:var(--cream); padding: 4rem clamp(1.5rem, 5vw, 4rem);">
+    <div class="contact-grid" style="display:grid; grid-template-columns: 1fr 1fr; gap: 4rem;">
       <div>
-        <p class="contact-lead">Questions about a book, bulk orders, or media enquiries — get in touch.</p>
-        <p class="contact-note">I'm also active on social media, primarily sharing data-driven content for rideshare drivers and independent workers. Follow along if that's your world.</p>
+        <h2 style="color:var(--cream);">Contact</h2>
+        <p style="margin-top:1rem; opacity:0.7;">Enquiries regarding bulk orders, technical support, or media requests.</p>
       </div>
-      <div class="contact-links">
-        <!-- Replace handle placeholders with your actual handles -->
-        <a href="https://x.com/WJWalshAuthor" target="_blank" class="contact-row">
-          <span class="contact-platform">X / Twitter</span>
-          <span class="contact-handle">@WJWalshAuthor</span>
-        </a>
-        <a href="https://www.threads.com/@wjwalsh_author" target="_blank" class="contact-row">
-          <span class="contact-platform">Threads</span>
-          <span class="contact-handle">@wjwalsh_author</span>
-        </a>
-        <a href="https://www.instagram.com/wjwalsh_author/" target="_blank" class="contact-row">
-          <span class="contact-platform">Instagram</span>
-          <span class="contact-handle">@wjwalsh_author</span>
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=61574275686596" target="_blank" class="contact-row">
-          <span class="contact-platform">Facebook</span>
-          <span class="contact-handle">WJ Walsh Author</span
-        </a>
-        <a href="mailto:williamjwalshauthor@gmail.com" class="contact-row">
-          <span class="contact-platform">Email</span>
-          <span class="contact-handle">williamjwalshauthor@gmail.com</span>
-        </a>
+      <div style="display:flex; flex-direction:column; gap:1rem;">
+        <a href="mailto:williamjwalshauthor@gmail.com" style="border:1px solid rgba(255,255,255,0.1); padding:1rem; display:block;">Email: williamjwalshauthor@gmail.com</a>
+        <a href="https://x.com/WJWalshAuthor" target="_blank" style="border:1px solid rgba(255,255,255,0.1); padding:1rem; display:block;">Follow on X / Twitter</a>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    &copy; 2026 William J. Walsh. All rights reserved. Published independently via Amazon KDP.
+  <div class="mobile-sticky-bar">
+    <a href="#books" class="btn-book" style="background:var(--cognac); border:none;">Browse 2026 Collection</a>
+  </div>
+
+  <footer style="text-align:center; padding: 2rem; font-size: 0.8rem; opacity: 0.5;">
+    &copy; 2026 William J. Walsh. Independent KDP Publisher.
   </footer>
+
+  <script>
+    document.getElementById('milesInput').addEventListener('input', function(e) {
+      const miles = e.target.value || 0;
+      const rate = 0.675; // Estimated 2026 IRS rate
+      const total = (miles * rate).toLocaleString(undefined, {minimumFractionDigits: 0, maximumFractionDigits: 0});
+      document.getElementById('calcResult').innerText = total;
+    });
+  </script>
 
 </body>
 </html>
