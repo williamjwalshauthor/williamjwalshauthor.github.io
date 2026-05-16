@@ -154,7 +154,7 @@
     }
     .contact-row:hover { border-color: var(--cognac-lt); background: rgba(160,82,45,.08); }
     .contact-platform { font-size: .72rem; font-weight: 500; text-transform: uppercase; letter-spacing: .1em; color: var(--cognac-lt); min-width: 75px; }
-    .contact-handle { font-size: .9rem; color: rgba(249,246,240,.8); overflow-wrap: break-word; word-break: normal; min-width: 0; }
+    .contact-handle { font-size: .9rem; color: rgba(249,246,240,.8); overflow-wrap: anywhere; min-width: 0; }
 
     /* ─── FAQ ────────────────────────────────────────────────── */
     #faq { background: var(--cream2); }
@@ -224,6 +224,14 @@
       .contact-grid,
       .toolkit-grid,
       .faq-grid { grid-template-columns: 1fr; gap: 0; }
+
+      /* Stack contact rows on mobile so email doesn't truncate */
+      .contact-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.3rem;
+        padding: 1rem 1.2rem;
+      }
 
       /* Photo above text on mobile */
       .about-grid { display: flex; flex-direction: column; }
