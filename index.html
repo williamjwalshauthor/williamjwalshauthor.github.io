@@ -121,13 +121,14 @@
     .toolkit-tabs { list-style: none; margin: 1.2rem 0; display: flex; flex-direction: column; gap: .8rem; }
     .toolkit-tabs li { font-size: .9rem; color: var(--mid); padding-left: 1rem; border-left: 2px solid var(--cognac); line-height: 1.4; }
     .toolkit-tabs li strong { display: block; color: var(--charcoal); font-size: .88rem; }
-    .toolkit-form { padding: 2rem; background: var(--cream); border: 1px solid var(--border); }
+    .toolkit-form { padding: 2rem; background: var(--cream); border: 1px solid var(--border); overflow: hidden; }
     .toolkit-form-label { display: block; font-size: .9rem; color: var(--mid); margin-bottom: 1.2rem; line-height: 1.5; }
     .toolkit-form .formkit-submit { border-radius: 0 !important; background-color: var(--charcoal) !important; transition: background .22s !important; }
     .toolkit-form .formkit-submit:hover { background-color: var(--cognac) !important; }
     /* Prevent Kit form from overflowing on mobile */
     .formkit-form { min-width: 0 !important; width: 100% !important; max-width: 100% !important; }
     .seva-form { overflow: hidden !important; }
+    .formkit-fields { flex-wrap: wrap !important; }
 
     /* ─── ABOUT ──────────────────────────────────────────────── */
     .about-grid { display: grid; grid-template-columns: 1.5fr 0.5fr; gap: 4rem; align-items: start; }
@@ -153,7 +154,7 @@
     }
     .contact-row:hover { border-color: var(--cognac-lt); background: rgba(160,82,45,.08); }
     .contact-platform { font-size: .72rem; font-weight: 500; text-transform: uppercase; letter-spacing: .1em; color: var(--cognac-lt); min-width: 75px; }
-    .contact-handle { font-size: .9rem; color: rgba(249,246,240,.8); overflow-wrap: break-word; word-break: break-all; min-width: 0; }
+    .contact-handle { font-size: .9rem; color: rgba(249,246,240,.8); overflow-wrap: break-word; word-break: normal; min-width: 0; }
 
     /* ─── FAQ ────────────────────────────────────────────────── */
     #faq { background: var(--cream2); }
@@ -173,7 +174,7 @@
       transition: max-height .35s ease, padding .25s ease;
       font-size: .92rem; color: var(--mid); line-height: 1.75;
     }
-    .faq-item.open .faq-answer { max-height: 400px; padding: 0 1.5rem 1.3rem; }
+    .faq-item.open .faq-answer { max-height: 1500px; padding: 0 1.5rem 1.3rem; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
 
     /* ─── FOOTER ─────────────────────────────────────────────── */
@@ -249,7 +250,7 @@
   <nav>
     <div class="nav-name">William J. Walsh</div>
     <input type="checkbox" id="nav-toggle" />
-    <label for="nav-toggle" class="nav-hamburger" aria-label="Menu">☰</label>
+    <label for="nav-toggle" class="nav-hamburger" aria-label="Menu" role="button">☰</label>
     <div class="nav-links">
       <a href="#home">Home</a>
       <a href="#books">Books</a>
@@ -260,219 +261,221 @@
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section id="home">
-    <div class="hero-rule"></div>
-    <p class="hero-eyebrow">Author &amp; Independent Publisher</p>
-    <h1 class="hero-name">William<br>J. Walsh</h1>
-    <p class="hero-tagline">Practical guides for independent workers, gig economy professionals, and people building smarter habits.</p>
-    <div class="hero-cta">
-      <a href="#books" class="btn btn-primary">Browse Books</a>
-      <a href="#about" class="btn btn-outline">About</a>
-    </div>
-    <div class="hero-bg-text">WJW</div>
-  </section>
-
-  <!-- BOOKS -->
-  <section id="books">
-    <div class="section-header">
-      <h2>Books</h2>
-      <div class="section-line"></div>
-    </div>
-
-    <div class="series-block">
-      <div class="series-label">The Rideshare Driver's Log System — Series</div>
-      <div class="books-grid">
-        <div class="book-card">
-          <span class="book-badge">Print</span>
-          <div class="book-title">2026 Rideshare Shift Log — Quarterly Edition</div>
-          <div class="book-desc">Structured shift-by-shift tracking for rideshare drivers. Capture real earnings after expenses — what the app won't show you.</div>
-          <div class="book-footer">
-            <span class="book-price">$11.99</span>
-            <a href="https://www.amazon.com/dp/B0GXS1RXHG" target="_blank" class="book-link">View on Amazon →</a>
-          </div>
-        </div>
-        <div class="book-card">
-          <span class="book-badge">Print</span>
-          <div class="book-title">2026 Rideshare Mileage Log — Quarterly Edition</div>
-          <div class="book-desc">IRS-compliant mileage tracking for rideshare and delivery drivers. Every journey logged, every deduction supported.</div>
-          <div class="book-footer">
-            <span class="book-price">$9.99</span>
-            <a href="https://www.amazon.com/dp/B0GYCQQWX2" target="_blank" class="book-link">View on Amazon →</a>
-          </div>
-        </div>
+  <main>
+    <!-- HERO -->
+    <section id="home">
+      <div class="hero-rule"></div>
+      <p class="hero-eyebrow">Author &amp; Independent Publisher</p>
+      <h1 class="hero-name">William<br>J. Walsh</h1>
+      <p class="hero-tagline">Practical guides for independent workers, gig economy professionals, and people building smarter habits.</p>
+      <div class="hero-cta">
+        <a href="#books" class="btn btn-primary">Browse Books</a>
+        <a href="#about" class="btn btn-outline">About</a>
       </div>
-    </div>
+      <div class="hero-bg-text">WJW</div>
+    </section>
 
-    <div class="series-block">
-      <div class="series-label">Gig Economy — Standalone Titles</div>
-      <div class="books-grid">
-        <div class="book-card">
-          <span class="book-badge">Print</span>
-          <div class="book-title">2026 Mileage &amp; Expense Log</div>
-          <div class="book-desc">A comprehensive mileage and expense tracker for any independent worker. Track deductible miles, business costs, and income in one place.</div>
-          <div class="book-footer">
-            <span class="book-price">$9.99</span>
-            <a href="https://www.amazon.com/dp/B0GW63KQ1Z" target="_blank" class="book-link">View on Amazon →</a>
+    <!-- BOOKS -->
+    <section id="books">
+      <div class="section-header">
+        <h2>Books</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="series-block">
+        <div class="series-label">The Rideshare Driver's Log System — Series</div>
+        <div class="books-grid">
+          <div class="book-card">
+            <span class="book-badge">Print</span>
+            <div class="book-title">2026 Rideshare Shift Log — Quarterly Edition</div>
+            <div class="book-desc">Structured shift-by-shift tracking for rideshare drivers. Capture real earnings after expenses — what the app won't show you.</div>
+            <div class="book-footer">
+              <span class="book-price">$11.99</span>
+              <a href="https://www.amazon.com/dp/B0GXS1RXHG" target="_blank" class="book-link">View on Amazon →</a>
+            </div>
           </div>
-        </div>
-        <div class="book-card">
-          <span class="book-badge kindle">Kindle</span>
-          <div class="book-title">Rideshare Driver Income Guide 2026</div>
-          <div class="book-desc">The numbers your app won't show you. A plain-English breakdown of real rideshare earnings, expenses, and what you actually take home.</div>
-          <div class="book-footer">
-            <span class="book-price">$0.99</span>
-            <a href="https://www.amazon.com/dp/B0GX2ZYHSK" target="_blank" class="book-link">View on Amazon →</a>
-          </div>
-        </div>
-        <div class="book-card">
-          <span class="book-badge coming">Coming Soon</span>
-          <div class="book-title">What You Earned, What You Owe: A Tax Guide for Gig Drivers — 2026 Edition</div>
-          <div class="book-desc">29 chapters covering 2026 IRS figures, deductions, quarterly estimated taxes, and the latest legislative updates for independent contractors.</div>
-          <div class="book-footer">
-            <span class="book-price">2026</span>
-            <span class="book-link disabled">Coming Soon</span>
+          <div class="book-card">
+            <span class="book-badge">Print</span>
+            <div class="book-title">2026 Rideshare Mileage Log — Quarterly Edition</div>
+            <div class="book-desc">IRS-compliant mileage tracking for rideshare and delivery drivers. Every journey logged, every deduction supported.</div>
+            <div class="book-footer">
+              <span class="book-price">$9.99</span>
+              <a href="https://www.amazon.com/dp/B0GYCQQWX2" target="_blank" class="book-link">View on Amazon →</a>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="series-block">
-      <div class="series-label">Practical AI Guides</div>
-      <div class="books-grid">
-        <div class="book-card">
-          <span class="book-badge coming">Coming Soon</span>
-          <div class="book-title">The AI Style Assistant</div>
-          <div class="book-desc">How to use ChatGPT and Claude to dress better, shop smarter, and build a wardrobe that actually works.</div>
-          <div class="book-footer">
-            <span class="book-price">—</span>
-            <span class="book-link disabled">Coming Soon</span>
+      <div class="series-block">
+        <div class="series-label">Gig Economy — Standalone Titles</div>
+        <div class="books-grid">
+          <div class="book-card">
+            <span class="book-badge">Print</span>
+            <div class="book-title">2026 Mileage &amp; Expense Log</div>
+            <div class="book-desc">A comprehensive mileage and expense tracker for any independent worker. Track deductible miles, business costs, and income in one place.</div>
+            <div class="book-footer">
+              <span class="book-price">$9.99</span>
+              <a href="https://www.amazon.com/dp/B0GW63KQ1Z" target="_blank" class="book-link">View on Amazon →</a>
+            </div>
+          </div>
+          <div class="book-card">
+            <span class="book-badge kindle">Kindle</span>
+            <div class="book-title">Rideshare Driver Income Guide 2026</div>
+            <div class="book-desc">The numbers your app won't show you. A plain-English breakdown of real rideshare earnings, expenses, and what you actually take home.</div>
+            <div class="book-footer">
+              <span class="book-price">$0.99</span>
+              <a href="https://www.amazon.com/dp/B0GX2ZYHSK" target="_blank" class="book-link">View on Amazon →</a>
+            </div>
+          </div>
+          <div class="book-card">
+            <span class="book-badge coming">Coming Soon</span>
+            <div class="book-title">What You Earned, What You Owe: A Tax Guide for Gig Drivers — 2026 Edition</div>
+            <div class="book-desc">29 chapters covering 2026 IRS figures, deductions, quarterly estimated taxes, and the latest legislative updates for independent contractors.</div>
+            <div class="book-footer">
+              <span class="book-price">2026</span>
+              <span class="book-link disabled">Coming Soon</span>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- TOOLKIT -->
-  <section id="toolkit">
-    <div class="section-header">
-      <h2>Free Toolkit</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="toolkit-grid">
-      <div>
-        <p class="toolkit-lead">The Driver Profit System Toolkit — free, no strings.</p>
-        <p class="toolkit-body">A companion spreadsheet built to run alongside the logbooks. Enter your numbers and it does the rest — real hourly rate, mileage deduction value, expense breakdown, and quarterly tax estimate.</p>
-        <ul class="toolkit-tabs">
-          <li><strong>Shift Log Analyzer</strong>Your true hourly rate after real operating costs</li>
-          <li><strong>Mileage Log Analyzer</strong>What you're leaving unclaimed at the IRS rate</li>
-          <li><strong>Mileage &amp; Expense Analyzer</strong>Standard vs actual method comparison</li>
-          <li><strong>Tax Estimator</strong>Quarterly set-aside calculator</li>
-        </ul>
-        <p class="toolkit-body">Enter data only in the gold cells. Everything else calculates automatically.</p>
-      </div>
-      <div class="toolkit-form">
-        <span class="toolkit-form-label">Enter your email and the toolkit lands in your inbox immediately.</span>
-        <script src="https://f.convertkit.com/ckjs/ck.5.js"></script>
-        <form action="https://app.kit.com/forms/9447762/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="9447762" data-uid="35c38a5633" data-format="inline" data-version="5" data-options="{&quot;settings&quot;:{&quot;after_subscribe&quot;:{&quot;action&quot;:&quot;message&quot;,&quot;success_message&quot;:&quot;Success! Now check your email to confirm your subscription.&quot;,&quot;redirect_url&quot;:&quot;&quot;},&quot;analytics&quot;:{&quot;google&quot;:null,&quot;fathom&quot;:null,&quot;facebook&quot;:null,&quot;segment&quot;:null,&quot;pinterest&quot;:null,&quot;sparkloop&quot;:null,&quot;googletagmanager&quot;:null},&quot;modal&quot;:{&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;powered_by&quot;:{&quot;show&quot;:true,&quot;url&quot;:&quot;https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic&quot;},&quot;recaptcha&quot;:{&quot;enabled&quot;:false},&quot;return_visitor&quot;:{&quot;action&quot;:&quot;show&quot;,&quot;custom_content&quot;:&quot;&quot;},&quot;slide_in&quot;:{&quot;display_in&quot;:&quot;bottom_right&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;sticky_bar&quot;:{&quot;display_in&quot;:&quot;top&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15}},&quot;version&quot;:&quot;5&quot;}" min-width="400 500 600 700 800"><div data-style="clean"><ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul><div data-element="fields" data-stacked="false" class="seva-fields formkit-fields"><div class="formkit-field"><input class="formkit-input" name="email_address" aria-label="Email Address" placeholder="Email Address" required="" type="email" style="color: rgb(0, 0, 0); border-color: rgb(227, 227, 227); border-radius: 4px; font-weight: 400;"></div><button data-element="submit" class="formkit-submit formkit-submit" style="color: rgb(255, 255, 255); background-color: rgb(22, 119, 190); border-radius: 4px; font-weight: 400;"><div class="formkit-spinner"><div></div><div></div><div></div></div><span class="">Send me the Toolkit</span></button></div><div class="formkit-powered-by-convertkit-container"><a href="https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic" data-element="powered-by" class="formkit-powered-by-convertkit" data-variant="dark" target="_blank" rel="nofollow noopener">Built with Kit</a></div></div></form>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="section-header">
-      <h2>About</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="about-grid">
-      <div>
-        <p class="about-lead">I write practical guides for people who work independently and want to measure, track, and understand their business better.</p>
-        <div class="about-body">
-          <p>My background is in IT, cybersecurity, and operational data — which shapes how I approach every book I write. I don't believe in vague advice. I believe in systems: structured logs, clear numbers, and tools that give you the information to make better decisions.</p>
-          <p>The Rideshare Driver's Log System came from a simple observation: drivers aren't under-earning — they're under-measuring. The same principle drives everything I publish, whether it's a mileage log, a tax guide, or an AI assistant for your wardrobe.</p>
+      <div class="series-block">
+        <div class="series-label">Practical AI Guides</div>
+        <div class="books-grid">
+          <div class="book-card">
+            <span class="book-badge coming">Coming Soon</span>
+            <div class="book-title">The AI Style Assistant</div>
+            <div class="book-desc">How to use ChatGPT and Claude to dress better, shop smarter, and build a wardrobe that actually works.</div>
+            <div class="book-footer">
+              <span class="book-price">—</span>
+              <span class="book-link disabled">Coming Soon</span>
+            </div>
+          </div>
         </div>
       </div>
-      <img src="author.jpg" alt="William J. Walsh" class="about-photo" />
-    </div>
-  </section>
+    </section>
 
-  <!-- FAQ -->
-  <section id="faq">
-    <div class="section-header">
-      <h2>FAQ</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="faq-grid">
-
-      <div class="faq-item">
-        <button class="faq-question">What's the difference between the Shift Log and the Mileage Log?<span class="faq-icon">+</span></button>
-        <div class="faq-answer">These two books track different things and work best together. The Shift Log captures your complete shift picture — trip count, total earnings, platform fees, fuel, and what you actually kept after costs. It tells you your real hourly rate. The Mileage Log is focused specifically on recording every mile driven for IRS purposes. It's a legal record for tax time, not a profit tracker. If you're serious about both knowing your numbers and defending your deductions, you want both.</div>
+    <!-- TOOLKIT -->
+    <section id="toolkit">
+      <div class="section-header">
+        <h2>Free Toolkit</h2>
+        <div class="section-line"></div>
       </div>
-
-      <div class="faq-item">
-        <button class="faq-question">What's the difference between the Mileage Log and the Mileage &amp; Expense Log?<span class="faq-icon">+</span></button>
-        <div class="faq-answer">The Rideshare Mileage Log is built specifically for rideshare and delivery drivers — it's compact, quarterly format, and focused on IRS-compliant mileage recording. The Mileage &amp; Expense Log is a broader standalone title for any independent worker or small business owner who needs to track both mileage and business expenses in one place. If you're a rideshare driver, the dedicated Mileage Log is the right fit. If you're a contractor, tradesperson, or run a side business, the Mileage &amp; Expense Log covers more ground.</div>
+      <div class="toolkit-grid">
+        <div>
+          <p class="toolkit-lead">The Driver Profit System Toolkit — free, no strings.</p>
+          <p class="toolkit-body">A companion spreadsheet built to run alongside the logbooks. Enter your numbers and it does the rest — real hourly rate, mileage deduction value, expense breakdown, and quarterly tax estimate.</p>
+          <ul class="toolkit-tabs">
+            <li><strong>Shift Log Analyzer</strong>Your true hourly rate after real operating costs</li>
+            <li><strong>Mileage Log Analyzer</strong>What you're leaving unclaimed at the IRS rate</li>
+            <li><strong>Mileage &amp; Expense Analyzer</strong>Standard vs actual method comparison</li>
+            <li><strong>Tax Estimator</strong>Quarterly set-aside calculator</li>
+          </ul>
+          <p class="toolkit-body">Enter data only in the gold cells. Everything else calculates automatically.</p>
+        </div>
+        <div class="toolkit-form">
+          <span class="toolkit-form-label">Enter your email and the toolkit lands in your inbox immediately.</span>
+          <script src="https://f.convertkit.com/ckjs/ck.5.js" async defer></script>
+          <form action="https://app.kit.com/forms/9447762/subscriptions" class="seva-form formkit-form" method="post" data-sv-form="9447762" data-uid="35c38a5633" data-format="inline" data-version="5" data-options="{&quot;settings&quot;:{&quot;after_subscribe&quot;:{&quot;action&quot;:&quot;message&quot;,&quot;success_message&quot;:&quot;Success! Now check your email to confirm your subscription.&quot;,&quot;redirect_url&quot;:&quot;&quot;},&quot;analytics&quot;:{&quot;google&quot;:null,&quot;fathom&quot;:null,&quot;facebook&quot;:null,&quot;segment&quot;:null,&quot;pinterest&quot;:null,&quot;sparkloop&quot;:null,&quot;googletagmanager&quot;:null},&quot;modal&quot;:{&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;powered_by&quot;:{&quot;show&quot;:true,&quot;url&quot;:&quot;https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic&quot;},&quot;recaptcha&quot;:{&quot;enabled&quot;:false},&quot;return_visitor&quot;:{&quot;action&quot;:&quot;show&quot;,&quot;custom_content&quot;:&quot;&quot;},&quot;slide_in&quot;:{&quot;display_in&quot;:&quot;bottom_right&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15},&quot;sticky_bar&quot;:{&quot;display_in&quot;:&quot;top&quot;,&quot;trigger&quot;:&quot;timer&quot;,&quot;scroll_percentage&quot;:null,&quot;timer&quot;:5,&quot;devices&quot;:&quot;all&quot;,&quot;show_once_every&quot;:15}},&quot;version&quot;:&quot;5&quot;}" min-width="400 500 600 700 800"><div data-style="clean"><ul class="formkit-alert formkit-alert-error" data-element="errors" data-group="alert"></ul><div data-element="fields" data-stacked="false" class="seva-fields formkit-fields"><div class="formkit-field"><input class="formkit-input" name="email_address" aria-label="Email Address" placeholder="Email Address" required="" type="email" style="color: rgb(0, 0, 0); border-color: rgb(227, 227, 227); border-radius: 4px; font-weight: 400;"></div><button data-element="submit" class="formkit-submit formkit-submit" style="color: rgb(255, 255, 255); background-color: rgb(22, 119, 190); border-radius: 4px; font-weight: 400;"><div class="formkit-spinner"><div></div><div></div><div></div></div><span class="">Send me the Toolkit</span></button></div><div class="formkit-powered-by-convertkit-container"><a href="https://kit.com/features/forms?utm_campaign=poweredby&amp;utm_content=form&amp;utm_medium=referral&amp;utm_source=dynamic" data-element="powered-by" class="formkit-powered-by-convertkit" data-variant="dark" target="_blank" rel="nofollow noopener">Built with Kit</a></div></div></form>
+        </div>
       </div>
+    </section>
 
-      <div class="faq-item">
-        <button class="faq-question">Why quarterly instead of annual?<span class="faq-icon">+</span></button>
-        <div class="faq-answer">Annual logbooks are physically large and expensive to print, which pushes the price up. A quarterly format keeps each volume compact, affordable, and easier to carry. It also matches how the IRS expects quarterly estimated tax payments — so your tracking period and your tax obligations are in sync. Four books a year at a lower price beats one oversized book you won't carry.</div>
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="section-header">
+        <h2>About</h2>
+        <div class="section-line"></div>
       </div>
+      <div class="about-grid">
+        <div>
+          <p class="about-lead">I write practical guides for people who work independently and want to measure, track, and understand their business better.</p>
+          <div class="about-body">
+            <p>My background is in IT, cybersecurity, and operational data — which shapes how I approach every book I write. I don't believe in vague advice. I believe in systems: structured logs, clear numbers, and tools that give you the information to make better decisions.</p>
+            <p>The Rideshare Driver's Log System came from a simple observation: drivers aren't under-earning — they're under-measuring. The same principle drives everything I publish, whether it's a mileage log, a tax guide, or an AI assistant for your wardrobe.</p>
+          </div>
+        </div>
+        <img src="author.jpg" alt="William J. Walsh" class="about-photo" width="400" height="500" />
+      </div>
+    </section>
 
-      <div class="faq-item">
-        <button class="faq-question">Do these work for delivery drivers — DoorDash, Instacart, Amazon Flex?<span class="faq-icon">+</span></button>
-        <div class="faq-answer">Yes. The tracking structure works for any app-based gig work. The Shift Log records platform earnings, fees deducted, and your net — that applies whether you're driving passengers or delivering food and parcels. The Mileage Log is IRS-compliant for any business mileage. The only thing that varies slightly between platforms is how fees are structured, but the log pages accommodate any platform's payout format.</div>
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="section-header">
+        <h2>FAQ</h2>
+        <div class="section-line"></div>
       </div>
+      <div class="faq-grid">
 
-      <div class="faq-item">
-        <button class="faq-question">Are these IRS-compliant?<span class="faq-icon">+</span></button>
-        <div class="faq-answer">The Mileage Log is designed to meet IRS contemporaneous recordkeeping requirements — date, destination, business purpose, and mileage for each trip. This is what the IRS expects to see if your deductions are ever questioned. The Shift Log is a business performance tool rather than a statutory record, but the data it captures supports your overall tax position. Neither replaces a qualified tax professional, but both give you the records you need.</div>
-      </div>
+        <div class="faq-item">
+          <button class="faq-question">What's the difference between the Shift Log and the Mileage Log?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">These two books track different things and work best together. The Shift Log captures your complete shift picture — trip count, total earnings, platform fees, fuel, and what you actually kept after costs. It tells you your real hourly rate. The Mileage Log is focused specifically on recording every mile driven for IRS purposes. It's a legal record for tax time, not a profit tracker. If you're serious about both knowing your numbers and defending your deductions, you want both.</div>
+        </div>
 
-      <div class="faq-item">
-        <button class="faq-question">Are these print books or digital?<span class="faq-icon">+</span></button>
-        <div class="faq-answer">The logbooks are print — physical books you write in by hand. This is intentional. A handwritten contemporaneous record carries more weight as a legal document than a spreadsheet that can be edited after the fact. The Rideshare Driver Income Guide is a Kindle ebook. The free Driver Profit System Toolkit is a Google Sheets spreadsheet — a digital companion to the physical logs, not a replacement for them.</div>
-      </div>
+        <div class="faq-item">
+          <button class="faq-question">What's the difference between the Mileage Log and the Mileage &amp; Expense Log?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">The Rideshare Mileage Log is built specifically for rideshare and delivery drivers — it's compact, quarterly format, and focused on IRS-compliant mileage recording. The Mileage &amp; Expense Log is a broader standalone title for any independent worker or small business owner who needs to track both mileage and business expenses in one place. If you're a rideshare driver, the dedicated Mileage Log is the right fit. If you're a contractor, tradesperson, or run a side business, the Mileage &amp; Expense Log covers more ground.</div>
+        </div>
 
-    </div>
-  </section>
+        <div class="faq-item">
+          <button class="faq-question">Why quarterly instead of annual?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">Annual logbooks are physically large and expensive to print, which pushes the price up. A quarterly format keeps each volume compact, affordable, and easier to carry. It also matches how the IRS expects quarterly estimated tax payments — so your tracking period and your tax obligations are in sync. Four books a year at a lower price beats one oversized book you won't carry.</div>
+        </div>
 
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="section-header">
-      <h2>Contact</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="contact-grid">
-      <div>
-        <p class="contact-lead">Questions about a book, bulk orders, or media enquiries — get in touch.</p>
-        <p class="contact-note">I'm also active on social media, sharing data-driven content for rideshare drivers and independent workers.</p>
+        <div class="faq-item">
+          <button class="faq-question">Do these work for delivery drivers — DoorDash, Instacart, Amazon Flex?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">Yes. The tracking structure works for any app-based gig work. The Shift Log records platform earnings, fees deducted, and your net — that applies whether you're driving passengers or delivering food and parcels. The Mileage Log is IRS-compliant for any business mileage. The only thing that varies slightly between platforms is how fees are structured, but the log pages accommodate any platform's payout format.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Are these IRS-compliant?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">The Mileage Log is designed to meet IRS contemporaneous recordkeeping requirements — date, destination, business purpose, and mileage for each trip. This is what the IRS expects to see if your deductions are ever questioned. The Shift Log is a business performance tool rather than a statutory record, but the data it captures supports your overall tax position. Neither replaces a qualified tax professional, but both give you the records you need.</div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">Are these print books or digital?<span class="faq-icon">+</span></button>
+          <div class="faq-answer">The logbooks are print — physical books you write in by hand. This is intentional. A handwritten contemporaneous record carries more weight as a legal document than a spreadsheet that can be edited after the fact. The Rideshare Driver Income Guide is a Kindle ebook. The free Driver Profit System Toolkit is a Google Sheets spreadsheet — a digital companion to the physical logs, not a replacement for them.</div>
+        </div>
+
       </div>
-      <div class="contact-links">
-        <a href="https://x.com/WJWalshAuthor" target="_blank" class="contact-row">
-          <span class="contact-platform">X / Twitter</span>
-          <span class="contact-handle">@WJWalshAuthor</span>
-        </a>
-        <a href="https://www.threads.com/@wjwalsh_author" target="_blank" class="contact-row">
-          <span class="contact-platform">Threads</span>
-          <span class="contact-handle">@wjwalsh_author</span>
-        </a>
-        <a href="https://www.instagram.com/wjwalsh_author/" target="_blank" class="contact-row">
-          <span class="contact-platform">Instagram</span>
-          <span class="contact-handle">@wjwalsh_author</span>
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=61574275686596" target="_blank" class="contact-row">
-          <span class="contact-platform">Facebook</span>
-          <span class="contact-handle">WJ Walsh Author</span>
-        </a>
-        <a href="mailto:williamjwalshauthor@gmail.com" class="contact-row">
-          <span class="contact-platform">Email</span>
-          <span class="contact-handle">williamjwalshauthor@gmail.com</span>
-        </a>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="section-header">
+        <h2>Contact</h2>
+        <div class="section-line"></div>
       </div>
-    </div>
-  </section>
+      <div class="contact-grid">
+        <div>
+          <p class="contact-lead">Questions about a book, bulk orders, or media enquiries — get in touch.</p>
+          <p class="contact-note">I'm also active on social media, sharing data-driven content for rideshare drivers and independent workers.</p>
+        </div>
+        <div class="contact-links">
+          <a href="https://x.com/WJWalshAuthor" target="_blank" class="contact-row">
+            <span class="contact-platform">X / Twitter</span>
+            <span class="contact-handle">@WJWalshAuthor</span>
+          </a>
+          <a href="https://www.threads.com/@wjwalsh_author" target="_blank" class="contact-row">
+            <span class="contact-platform">Threads</span>
+            <span class="contact-handle">@wjwalsh_author</span>
+          </a>
+          <a href="https://www.instagram.com/wjwalsh_author/" target="_blank" class="contact-row">
+            <span class="contact-platform">Instagram</span>
+            <span class="contact-handle">@wjwalsh_author</span>
+          </a>
+          <a href="https://www.facebook.com/profile.php?id=61574275686596" target="_blank" class="contact-row">
+            <span class="contact-platform">Facebook</span>
+            <span class="contact-handle">WJ Walsh Author</span>
+          </a>
+          <a href="mailto:williamjwalshauthor@gmail.com" class="contact-row">
+            <span class="contact-platform">Email</span>
+            <span class="contact-handle">williamjwalshauthor@gmail.com</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- FOOTER -->
   <footer>&copy; 2026 William J. Walsh. All rights reserved. Published independently via Amazon KDP.</footer>
@@ -489,7 +492,15 @@
       if (kitForm) kitForm.removeAttribute('min-width');
     });
 
-    // Smooth scroll + close mobile nav
+    // Mobile nav scroll lock
+    const navToggle = document.getElementById('nav-toggle');
+    if (navToggle) {
+      navToggle.addEventListener('change', function() {
+        document.body.style.overflow = this.checked ? 'hidden' : '';
+      });
+    }
+
+    // Smooth scroll + close mobile nav + unlock scroll
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
       anchor.addEventListener('click', function(e) {
         var href = this.getAttribute('href');
@@ -497,7 +508,12 @@
         e.preventDefault();
         var target = document.querySelector(href);
         if (target) target.scrollIntoView({ behavior: 'smooth' });
-        document.getElementById('nav-toggle').checked = false;
+        
+        // Close mobile menu and restore body scroll
+        if (navToggle) {
+          navToggle.checked = false;
+          document.body.style.overflow = '';
+        }
       });
     });
 
