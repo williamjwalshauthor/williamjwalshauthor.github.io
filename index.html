@@ -129,7 +129,11 @@
     .series-block { margin-bottom: 4rem; }
     .series-label { font-size: .75rem; font-weight: 500; text-transform: uppercase; letter-spacing: .12em; color: var(--cognac); border-bottom: 1px solid var(--border); padding-bottom: .6rem; margin-bottom: 1.5rem; }
     .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 1.2rem; }
-    .book-card { background: var(--cream2); border: 1px solid var(--border); padding: 1.5rem; display: flex; flex-direction: column; transition: background .3s ease, border-color .3s ease; }
+    .book-card { 
+      background: var(--cream2); border: 1px solid var(--border); padding: 1.5rem; display: flex; flex-direction: column; 
+      transition: background .3s ease, border-color .3s ease;
+      scroll-margin-top: 80px; /* Offset for fixed nav when jumping from FAQ */
+    }
     .book-badge { font-size: .7rem; font-weight: 500; text-transform: uppercase; color: var(--cream); background: var(--cognac); padding: .25rem .6rem; margin-bottom: 1rem; width: fit-content; }
     .book-badge.kindle { background: var(--mid); }
     .book-badge.coming { background: var(--charcoal); color: var(--cream); }
@@ -141,7 +145,7 @@
     .book-link.disabled { color: var(--mid); pointer-events: none; border-color: var(--mid); }
 
     /* ─── TOOLKIT ────────────────────────────────────────────── */
-    #toolkit { background: var(--cream2); transition: background .3s ease; }
+    #toolkit { background: var(--cream2); transition: background .3s ease; scroll-margin-top: 80px; }
     .toolkit-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: start; }
     .toolkit-lead { font-family: var(--serif); font-size: clamp(1.1rem, 2.5vw, 1.45rem); font-style: italic; line-height: 1.5; margin-bottom: 1.2rem; }
     .toolkit-body { font-size: .95rem; color: var(--mid); line-height: 1.8; margin-bottom: 1rem; }
@@ -152,12 +156,9 @@
     .toolkit-form-label { display: block; font-size: .9rem; color: var(--mid); margin-bottom: 1.2rem; line-height: 1.5; }
     .toolkit-form .formkit-submit { border-radius: 0 !important; background-color: var(--charcoal) !important; color: var(--cream) !important; transition: background .22s !important; }
     .toolkit-form .formkit-submit:hover { background-color: var(--cognac) !important; }
-    /* Prevent Kit form from overflowing on mobile */
     .formkit-form { min-width: 0 !important; width: 100% !important; max-width: 100% !important; }
     .seva-form { overflow: hidden !important; }
     .formkit-fields { flex-wrap: wrap !important; }
-    
-    /* Kit form dark mode overrides */
     html.dark-mode .formkit-input { background-color: var(--cream2) !important; color: var(--charcoal) !important; border-color: var(--border) !important; }
     html.dark-mode .formkit-submit { background-color: var(--charcoal) !important; color: var(--cream) !important; }
     html.dark-mode .formkit-submit:hover { background-color: var(--cognac) !important; }
@@ -209,6 +210,17 @@
     }
     .faq-item.open .faq-answer { max-height: 1500px; padding: 0 1.5rem 1.3rem; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+    /* Cross-link styling inside FAQ */
+    .faq-cross-link {
+      color: var(--cognac);
+      text-decoration: none;
+      border-bottom: 1px solid currentColor;
+      transition: opacity 0.2s;
+    }
+    .faq-cross-link:hover {
+      opacity: 0.8;
+    }
 
     /* ─── FOOTER ─────────────────────────────────────────────── */
     footer { background: #111; color: rgba(249,246,240,.3); text-align: center; padding: 2.5rem 1rem; font-size: .78rem; letter-spacing: .04em; transition: background .3s ease; }
@@ -330,7 +342,7 @@
       <div class="series-block">
         <div class="series-label">The Rideshare Driver's Log System — Series</div>
         <div class="books-grid">
-          <div class="book-card">
+          <div class="book-card" id="shift-log">
             <span class="book-badge">Print</span>
             <div class="book-title">2026 Rideshare Shift Log — Quarterly Edition</div>
             <div class="book-desc">Structured shift-by-shift tracking for rideshare drivers. Capture real earnings after expenses — what the app won't show you.</div>
@@ -339,7 +351,7 @@
               <a href="https://www.amazon.com/dp/B0GXS1RXHG" target="_blank" class="book-link">View on Amazon →</a>
             </div>
           </div>
-          <div class="book-card">
+          <div class="book-card" id="mileage-log">
             <span class="book-badge">Print</span>
             <div class="book-title">2026 Rideshare Mileage Log — Quarterly Edition</div>
             <div class="book-desc">IRS-compliant mileage tracking for rideshare and delivery drivers. Every journey logged, every deduction supported.</div>
@@ -354,7 +366,7 @@
       <div class="series-block">
         <div class="series-label">Gig Economy — Standalone Titles</div>
         <div class="books-grid">
-          <div class="book-card">
+          <div class="book-card" id="mileage-expense-log">
             <span class="book-badge">Print</span>
             <div class="book-title">2026 Mileage &amp; Expense Log</div>
             <div class="book-desc">A comprehensive mileage and expense tracker for any independent worker. Track deductible miles, business costs, and income in one place.</div>
@@ -363,7 +375,7 @@
               <a href="https://www.amazon.com/dp/B0GW63KQ1Z" target="_blank" class="book-link">View on Amazon →</a>
             </div>
           </div>
-          <div class="book-card">
+          <div class="book-card" id="income-guide">
             <span class="book-badge kindle">Kindle</span>
             <div class="book-title">Rideshare Driver Income Guide 2026</div>
             <div class="book-desc">The numbers your app won't show you. A plain-English breakdown of real rideshare earnings, expenses, and what you actually take home.</div>
@@ -372,7 +384,7 @@
               <a href="https://www.amazon.com/dp/B0GX2ZYHSK" target="_blank" class="book-link">View on Amazon →</a>
             </div>
           </div>
-          <div class="book-card">
+          <div class="book-card" id="tax-guide">
             <span class="book-badge coming">Coming Soon</span>
             <div class="book-title">What You Earned, What You Owe: A Tax Guide for Gig Drivers — 2026 Edition</div>
             <div class="book-desc">29 chapters covering 2026 IRS figures, deductions, quarterly estimated taxes, and the latest legislative updates for independent contractors.</div>
@@ -454,12 +466,12 @@
 
         <div class="faq-item">
           <button class="faq-question">What's the difference between the Shift Log and the Mileage Log?<span class="faq-icon">+</span></button>
-          <div class="faq-answer">These two books track different things and work best together. The Shift Log captures your complete shift picture — trip count, total earnings, platform fees, fuel, and what you actually kept after costs. It tells you your real hourly rate. The Mileage Log is focused specifically on recording every mile driven for IRS purposes. It's a legal record for tax time, not a profit tracker. If you're serious about both knowing your numbers and defending your deductions, you want both.</div>
+          <div class="faq-answer">These two books track different things and work best together. The <a href="#shift-log" class="faq-cross-link">Shift Log</a> captures your complete shift picture — trip count, total earnings, platform fees, fuel, and what you actually kept after costs. It tells you your real hourly rate. The <a href="#mileage-log" class="faq-cross-link">Mileage Log</a> is focused specifically on recording every mile driven for IRS purposes. It's a legal record for tax time, not a profit tracker. If you're serious about both knowing your numbers and defending your deductions, you want both.</div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">What's the difference between the Mileage Log and the Mileage &amp; Expense Log?<span class="faq-icon">+</span></button>
-          <div class="faq-answer">The Rideshare Mileage Log is built specifically for rideshare and delivery drivers — it's compact, quarterly format, and focused on IRS-compliant mileage recording. The Mileage &amp; Expense Log is a broader standalone title for any independent worker or small business owner who needs to track both mileage and business expenses in one place. If you're a rideshare driver, the dedicated Mileage Log is the right fit. If you're a contractor, tradesperson, or run a side business, the Mileage &amp; Expense Log covers more ground.</div>
+          <div class="faq-answer">The <a href="#mileage-log" class="faq-cross-link">Rideshare Mileage Log</a> is built specifically for rideshare and delivery drivers — it's compact, quarterly format, and focused on IRS-compliant mileage recording. The <a href="#mileage-expense-log" class="faq-cross-link">Mileage &amp; Expense Log</a> is a broader standalone title for any independent worker or small business owner who needs to track both mileage and business expenses in one place. If you're a rideshare driver, the dedicated Mileage Log is the right fit. If you're a contractor, tradesperson, or run a side business, the Mileage &amp; Expense Log covers more ground.</div>
         </div>
 
         <div class="faq-item">
@@ -469,17 +481,17 @@
 
         <div class="faq-item">
           <button class="faq-question">Do these work for delivery drivers — DoorDash, Instacart, Amazon Flex?<span class="faq-icon">+</span></button>
-          <div class="faq-answer">Yes. The tracking structure works for any app-based gig work. The Shift Log records platform earnings, fees deducted, and your net — that applies whether you're driving passengers or delivering food and parcels. The Mileage Log is IRS-compliant for any business mileage. The only thing that varies slightly between platforms is how fees are structured, but the log pages accommodate any platform's payout format.</div>
+          <div class="faq-answer">Yes. The tracking structure works for any app-based gig work. The <a href="#shift-log" class="faq-cross-link">Shift Log</a> records platform earnings, fees deducted, and your net — that applies whether you're driving passengers or delivering food and parcels. The <a href="#mileage-log" class="faq-cross-link">Mileage Log</a> is IRS-compliant for any business mileage. The only thing that varies slightly between platforms is how fees are structured, but the log pages accommodate any platform's payout format.</div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">Are these IRS-compliant?<span class="faq-icon">+</span></button>
-          <div class="faq-answer">The Mileage Log is designed to meet IRS contemporaneous recordkeeping requirements — date, destination, business purpose, and mileage for each trip. This is what the IRS expects to see if your deductions are ever questioned. The Shift Log is a business performance tool rather than a statutory record, but the data it captures supports your overall tax position. Neither replaces a qualified tax professional, but both give you the records you need.</div>
+          <div class="faq-answer">The <a href="#mileage-log" class="faq-cross-link">Mileage Log</a> is designed to meet IRS contemporaneous recordkeeping requirements — date, destination, business purpose, and mileage for each trip. This is what the IRS expects to see if your deductions are ever questioned. The <a href="#shift-log" class="faq-cross-link">Shift Log</a> is a business performance tool rather than a statutory record, but the data it captures supports your overall tax position. Neither replaces a qualified tax professional, but both give you the records you need.</div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question">Are these print books or digital?<span class="faq-icon">+</span></button>
-          <div class="faq-answer">The logbooks are print — physical books you write in by hand. This is intentional. A handwritten contemporaneous record carries more weight as a legal document than a spreadsheet that can be edited after the fact. The Rideshare Driver Income Guide is a Kindle ebook. The free Driver Profit System Toolkit is a Google Sheets spreadsheet — a digital companion to the physical logs, not a replacement for them.</div>
+          <div class="faq-answer">The logbooks are print — physical books you write in by hand. This is intentional. A handwritten contemporaneous record carries more weight as a legal document than a spreadsheet that can be edited after the fact. The <a href="#income-guide" class="faq-cross-link">Rideshare Driver Income Guide</a> is a Kindle ebook. The free <a href="#toolkit" class="faq-cross-link">Driver Profit System Toolkit</a> is a Google Sheets spreadsheet — a digital companion to the physical logs, not a replacement for them.</div>
         </div>
 
       </div>
