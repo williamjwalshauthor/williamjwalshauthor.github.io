@@ -12,7 +12,6 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
   <style>
-    /* ─── TOKENS ─────────────────────────────────────────────── */
     :root {
       --cream:     #F9F6F0;
       --cream2:    #F1EDE4;
@@ -24,8 +23,6 @@
       --serif:     'Cormorant Garamond', Georgia, serif;
       --sans:      'DM Sans', sans-serif;
     }
-
-    /* ─── DARK MODE TOKENS ──────────────────────────────────── */
     html.dark-mode {
       --cream:     #121210;
       --cream2:    #1C1C1A;
@@ -35,105 +32,42 @@
       --cognac-lt: #E09160;
       --border:    rgba(232,228,220,.15);
     }
-
-    /* ─── RESET ──────────────────────────────────────────────── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; overflow-x: hidden; }
-    body {
-      background: var(--cream);
-      color: var(--charcoal);
-      font-family: var(--sans);
-      font-size: 16px;
-      line-height: 1.7;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-      transition: background .3s ease, color .3s ease;
-    }
+    body { background: var(--cream); color: var(--charcoal); font-family: var(--sans); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; transition: background .3s ease, color .3s ease; }
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; height: auto; }
-
-    /* ─── NAV ────────────────────────────────────────────────── */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: rgba(249,246,240,.96);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 clamp(1rem, 5vw, 4rem);
-      height: 64px;
-      transition: background .3s ease, border-color .3s ease;
-    }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(249,246,240,.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 clamp(1rem, 5vw, 4rem); height: 64px; transition: background .3s ease, border-color .3s ease; }
     html.dark-mode nav { background: rgba(18,18,16,.96); }
-    
     .nav-name { font-family: var(--serif); font-size: 1.25rem; font-weight: 600; }
     #nav-toggle { display: none; }
-    
     .nav-controls { display: flex; align-items: center; gap: 0.5rem; }
-    
-    .theme-toggle {
-      background: none; border: none; cursor: pointer;
-      min-width: 44px; min-height: 44px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.3rem; color: var(--charcoal); transition: color .2s;
-    }
+    .theme-toggle { background: none; border: none; cursor: pointer; min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: var(--charcoal); transition: color .2s; }
     .theme-toggle:hover { color: var(--cognac); }
-    
-    .nav-hamburger {
-      display: none; cursor: pointer;
-      min-width: 44px; min-height: 44px;
-      align-items: center; justify-content: center;
-      font-size: 1.6rem; color: var(--charcoal);
-    }
+    .nav-hamburger { display: none; cursor: pointer; min-width: 44px; min-height: 44px; align-items: center; justify-content: center; font-size: 1.6rem; color: var(--charcoal); }
     .nav-links { display: flex; gap: 1.8rem; }
-    .nav-links a {
-      font-size: .82rem; font-weight: 500;
-      text-transform: uppercase; letter-spacing: .08em;
-      color: var(--mid);
-      min-height: 44px; display: flex; align-items: center;
-      transition: color .2s;
-    }
+    .nav-links a { font-size: .82rem; font-weight: 500; text-transform: uppercase; letter-spacing: .08em; color: var(--mid); min-height: 44px; display: flex; align-items: center; transition: color .2s; }
     .nav-links a:hover { color: var(--cognac); }
-
-    /* ─── SECTIONS ───────────────────────────────────────────── */
     section { padding: 5rem clamp(1.2rem, 6vw, 8rem); }
     .section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 3rem; }
     .section-header h2 { font-family: var(--serif); font-size: clamp(1.8rem, 5vw, 2.8rem); font-weight: 600; white-space: nowrap; }
     .section-line { flex: 1; height: 1px; background: var(--border); transition: background .3s ease; }
-
-    /* ─── HERO ───────────────────────────────────────────────── */
-    #home {
-      min-height: 100vh;
-      display: flex; flex-direction: column; justify-content: center;
-      position: relative; overflow: hidden;
-      padding-top: 8rem;
-    }
+    #home { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; position: relative; overflow: hidden; padding-top: 8rem; }
     .hero-rule { width: 48px; height: 2px; background: var(--cognac); margin-bottom: 1.8rem; }
     .hero-eyebrow { font-size: .8rem; font-weight: 500; text-transform: uppercase; letter-spacing: .14em; color: var(--cognac); margin-bottom: .8rem; }
     .hero-name { font-family: var(--serif); font-size: clamp(3.2rem, 12vw, 8rem); font-weight: 600; line-height: 1.05; margin-bottom: 1.4rem; }
     .hero-tagline { font-family: var(--serif); font-size: clamp(1.05rem, 3vw, 1.5rem); font-style: italic; color: var(--mid); max-width: 520px; line-height: 1.5; margin-bottom: 2.4rem; }
     .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center;
-      min-height: 52px; padding: 0 2rem;
-      font-family: var(--sans); font-size: .82rem; font-weight: 500;
-      text-transform: uppercase; letter-spacing: .08em;
-      border: 1.5px solid var(--charcoal); cursor: pointer; transition: all .22s;
-    }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 2rem; font-family: var(--sans); font-size: .82rem; font-weight: 500; text-transform: uppercase; letter-spacing: .08em; border: 1.5px solid var(--charcoal); cursor: pointer; transition: all .22s; }
     .btn-primary { background: var(--charcoal); color: var(--cream); }
     .btn-primary:hover { background: var(--cognac); border-color: var(--cognac); color: var(--cream); }
     .btn-outline:hover { background: var(--charcoal); color: var(--cream); }
     .hero-bg-text { position: absolute; right: -2rem; bottom: -1rem; font-family: var(--serif); font-size: clamp(8rem, 22vw, 20rem); font-weight: 600; color: rgba(28,28,28,.04); pointer-events: none; user-select: none; line-height: 1; transition: color .3s ease; }
     html.dark-mode .hero-bg-text { color: rgba(232,228,220,.04); }
-
-    /* ─── BOOKS ──────────────────────────────────────────────── */
     .series-block { margin-bottom: 4rem; }
     .series-label { font-size: .75rem; font-weight: 500; text-transform: uppercase; letter-spacing: .12em; color: var(--cognac); border-bottom: 1px solid var(--border); padding-bottom: .6rem; margin-bottom: 1.5rem; }
     .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 1.2rem; }
-    .book-card { 
-      background: var(--cream2); border: 1px solid var(--border); padding: 1.5rem; display: flex; flex-direction: column; 
-      transition: background .3s ease, border-color .3s ease;
-      scroll-margin-top: 80px; /* Offset for fixed nav when jumping from FAQ */
-    }
+    .book-card { background: var(--cream2); border: 1px solid var(--border); padding: 1.5rem; display: flex; flex-direction: column; transition: background .3s ease, border-color .3s ease; scroll-margin-top: 80px; }
     .book-badge { font-size: .7rem; font-weight: 500; text-transform: uppercase; color: var(--cream); background: var(--cognac); padding: .25rem .6rem; margin-bottom: 1rem; width: fit-content; }
     .book-badge.kindle { background: var(--mid); }
     .book-badge.coming { background: var(--charcoal); color: var(--cream); }
@@ -143,8 +77,6 @@
     .book-price { font-family: var(--serif); font-size: 1.1rem; font-weight: 600; }
     .book-link { font-size: .78rem; font-weight: 500; text-transform: uppercase; letter-spacing: .06em; color: var(--cognac); border-bottom: 1px solid currentColor; min-height: 44px; display: flex; align-items: center; }
     .book-link.disabled { color: var(--mid); pointer-events: none; border-color: var(--mid); }
-
-    /* ─── TOOLKIT ────────────────────────────────────────────── */
     #toolkit { background: var(--cream2); transition: background .3s ease; scroll-margin-top: 80px; }
     .toolkit-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 4rem; align-items: start; }
     .toolkit-lead { font-family: var(--serif); font-size: clamp(1.1rem, 2.5vw, 1.45rem); font-style: italic; line-height: 1.5; margin-bottom: 1.2rem; }
@@ -162,15 +94,11 @@
     html.dark-mode .formkit-input { background-color: var(--cream2) !important; color: var(--charcoal) !important; border-color: var(--border) !important; }
     html.dark-mode .formkit-submit { background-color: var(--charcoal) !important; color: var(--cream) !important; }
     html.dark-mode .formkit-submit:hover { background-color: var(--cognac) !important; }
-
-    /* ─── ABOUT ──────────────────────────────────────────────── */
     .about-grid { display: grid; grid-template-columns: 1.5fr 0.5fr; gap: 4rem; align-items: start; }
     .about-lead { font-family: var(--serif); font-size: clamp(1.1rem, 2.5vw, 1.45rem); font-style: italic; line-height: 1.5; margin-bottom: 1.2rem; }
     .about-body { font-size: .95rem; color: var(--mid); line-height: 1.8; }
     .about-body p + p { margin-top: 1rem; }
     .about-photo { border: 1px solid var(--border); width: 100%; transition: border-color .3s ease; }
-
-    /* ─── CONTACT ────────────────────────────────────────────── */
     #contact { background: var(--charcoal); color: var(--cream); transition: background .3s ease; }
     html.dark-mode #contact { background: #0a0a0a; }
     #contact .section-header h2 { color: var(--cream); }
@@ -179,119 +107,42 @@
     .contact-lead { font-family: var(--serif); font-size: clamp(1.1rem, 2.5vw, 1.45rem); font-style: italic; line-height: 1.5; color: rgba(249,246,240,.75); margin-bottom: 1rem; }
     .contact-note { font-size: .9rem; color: rgba(249,246,240,.5); line-height: 1.7; }
     .contact-links { display: flex; flex-direction: column; gap: .5rem; }
-    .contact-row {
-      display: flex; align-items: center; gap: 1rem;
-      min-height: 56px; padding: 0 1.2rem;
-      border: 1px solid rgba(249,246,240,.12);
-      color: var(--cream); transition: border-color .2s, background .2s;
-      overflow: hidden; width: 100%;
-    }
+    .contact-row { display: flex; align-items: center; gap: 1rem; min-height: 56px; padding: 0 1.2rem; border: 1px solid rgba(249,246,240,.12); color: var(--cream); transition: border-color .2s, background .2s; overflow: hidden; width: 100%; }
     .contact-row:hover { border-color: var(--cognac-lt); background: rgba(160,82,45,.08); }
     .contact-platform { font-size: .72rem; font-weight: 500; text-transform: uppercase; letter-spacing: .1em; color: var(--cognac-lt); min-width: 75px; }
     .contact-handle { font-size: .9rem; color: rgba(249,246,240,.8); overflow-wrap: anywhere; min-width: 0; }
-
-    /* ─── FAQ ────────────────────────────────────────────────── */
     #faq { background: var(--cream2); transition: background .3s ease; }
     .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; align-items: start; }
     .faq-item { background: var(--cream); border: 1px solid var(--border); transition: background .3s ease, border-color .3s ease; }
-    .faq-question {
-      width: 100%; text-align: left; background: none; border: none;
-      padding: 1.3rem 1.5rem; cursor: pointer;
-      display: flex; justify-content: space-between; align-items: center; gap: 1rem;
-      font-family: var(--serif); font-size: 1.1rem; font-weight: 600;
-      color: var(--charcoal); line-height: 1.3;
-    }
+    .faq-question { width: 100%; text-align: left; background: none; border: none; padding: 1.3rem 1.5rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-family: var(--serif); font-size: 1.1rem; font-weight: 600; color: var(--charcoal); line-height: 1.3; }
     .faq-question:hover { color: var(--cognac); }
     .faq-icon { font-size: 1.2rem; color: var(--cognac); flex-shrink: 0; transition: transform .25s; }
-    .faq-answer {
-      max-height: 0; overflow: hidden;
-      transition: max-height .35s ease, padding .25s ease;
-      font-size: .92rem; color: var(--mid); line-height: 1.75;
-    }
+    .faq-answer { max-height: 0; overflow: hidden; transition: max-height .35s ease, padding .25s ease; font-size: .92rem; color: var(--mid); line-height: 1.75; }
     .faq-item.open .faq-answer { max-height: 1500px; padding: 0 1.5rem 1.3rem; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
-
-    /* Cross-link styling inside FAQ */
-    .faq-cross-link {
-      color: var(--cognac);
-      text-decoration: none;
-      border-bottom: 1px solid currentColor;
-      transition: opacity 0.2s;
-    }
-    .faq-cross-link:hover {
-      opacity: 0.8;
-    }
-
-    /* ─── FOOTER ─────────────────────────────────────────────── */
+    .faq-cross-link { color: var(--cognac); text-decoration: none; border-bottom: 1px solid currentColor; transition: opacity 0.2s; }
+    .faq-cross-link:hover { opacity: 0.8; }
     footer { background: #111; color: rgba(249,246,240,.3); text-align: center; padding: 2.5rem 1rem; font-size: .78rem; letter-spacing: .04em; transition: background .3s ease; }
     html.dark-mode footer { background: #050505; }
-
-    /* ─── MOBILE STICKY BAR (hidden on desktop) ──────────────── */
     .mobile-sticky-bar { display: none; }
-
-    /* ─── MOBILE ─────────────────────────────────────────────── */
     @media (max-width: 768px) {
       body { padding-bottom: 72px; }
-
-      /* Hamburger nav */
       .nav-hamburger { display: flex; }
-      .nav-links {
-        display: none;
-        position: absolute; top: 64px; left: 0; right: 0;
-        background: var(--cream);
-        flex-direction: column; gap: 0;
-        border-bottom: 2px solid var(--border);
-        box-shadow: 0 8px 24px rgba(0,0,0,.08);
-        transition: background .3s ease;
-      }
-      .nav-links a {
-        padding: 1.1rem 1.5rem;
-        border-bottom: 1px solid var(--border);
-        justify-content: center; font-size: .9rem;
-      }
+      .nav-links { display: none; position: absolute; top: 64px; left: 0; right: 0; background: var(--cream); flex-direction: column; gap: 0; border-bottom: 2px solid var(--border); box-shadow: 0 8px 24px rgba(0,0,0,.08); transition: background .3s ease; }
+      .nav-links a { padding: 1.1rem 1.5rem; border-bottom: 1px solid var(--border); justify-content: center; font-size: .9rem; }
       #nav-toggle:checked ~ .nav-links { display: flex; }
-
-      /* Sticky CTA bar */
-      .mobile-sticky-bar {
-        display: flex;
-        position: fixed; bottom: 0; left: 0; right: 0;
-        background: #111; padding: 10px 1.2rem;
-        z-index: 999; border-top: 2px solid var(--cognac);
-      }
+      .mobile-sticky-bar { display: flex; position: fixed; bottom: 0; left: 0; right: 0; background: #111; padding: 10px 1.2rem; z-index: 999; border-top: 2px solid var(--cognac); }
       html.dark-mode .mobile-sticky-bar { background: #050505; }
-      .mobile-sticky-bar .btn {
-        width: 100%; background: var(--cognac);
-        border-color: var(--cognac); color: var(--cream);
-        font-size: .85rem;
-      }
-
-      /* Stack all grids */
-      .about-grid,
-      .contact-grid,
-      .toolkit-grid,
-      .faq-grid { grid-template-columns: 1fr; gap: 0; }
-
-      /* Stack contact rows on mobile so email doesn't truncate */
-      .contact-row {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.3rem;
-        padding: 1rem 1.2rem;
-      }
-
-      /* Photo above text on mobile */
+      .mobile-sticky-bar .btn { width: 100%; background: var(--cognac); border-color: var(--cognac); color: var(--cream); font-size: .85rem; }
+      .about-grid, .contact-grid, .toolkit-grid, .faq-grid { grid-template-columns: 1fr; gap: 0; }
+      .contact-row { flex-direction: column; align-items: flex-start; gap: 0.3rem; padding: 1rem 1.2rem; }
       .about-grid { display: flex; flex-direction: column; }
       .about-photo { order: -1; max-height: 280px; object-fit: cover; object-position: top; }
-
-      /* Books single column */
       .books-grid { grid-template-columns: 1fr; }
-
-      /* Hero */
       .hero-bg-text { display: none; }
       .hero-cta { flex-direction: column; }
       .hero-cta .btn { width: 100%; }
     }
-
     @media (max-width: 480px) {
       section { padding: 4rem 1.2rem; }
       #home { padding-top: 6rem; }
@@ -300,7 +151,6 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav>
     <div class="nav-name">William J. Walsh</div>
     <input type="checkbox" id="nav-toggle" />
@@ -319,7 +169,6 @@
   </nav>
 
   <main>
-    <!-- HERO -->
     <section id="home">
       <div class="hero-rule"></div>
       <p class="hero-eyebrow">Author &amp; Independent Publisher</p>
@@ -332,7 +181,6 @@
       <div class="hero-bg-text">WJW</div>
     </section>
 
-    <!-- BOOKS -->
     <section id="books">
       <div class="section-header">
         <h2>Books</h2>
@@ -385,12 +233,12 @@
             </div>
           </div>
           <div class="book-card" id="tax-guide">
-            <span class="book-badge coming">Coming Soon</span>
+            <span class="book-badge kindle">Kindle</span>
             <div class="book-title">What You Earned, What You Owe: A Tax Guide for Gig Drivers — 2026 Edition</div>
-            <div class="book-desc">29 chapters covering 2026 IRS figures, deductions, quarterly estimated taxes, and the latest legislative updates for independent contractors.</div>
+            <div class="book-desc">Schedule C line by line, every deduction gig drivers are entitled to, and the 2026 legislative updates — including the $25,000 tips deduction and the permanent QBI deduction under the One Big Beautiful Bill Act.</div>
             <div class="book-footer">
-              <span class="book-price">2026</span>
-              <span class="book-link disabled">Coming Soon</span>
+              <span class="book-price">$4.99</span>
+              <a href="https://www.amazon.com/dp/B0GX2YTM36" target="_blank" class="book-link">View on Amazon →</a>
             </div>
           </div>
         </div>
@@ -412,7 +260,6 @@
       </div>
     </section>
 
-    <!-- TOOLKIT -->
     <section id="toolkit">
       <div class="section-header">
         <h2>Free Toolkit</h2>
@@ -438,7 +285,6 @@
       </div>
     </section>
 
-    <!-- ABOUT -->
     <section id="about">
       <div class="section-header">
         <h2>About</h2>
@@ -456,48 +302,39 @@
       </div>
     </section>
 
-    <!-- FAQ -->
     <section id="faq">
       <div class="section-header">
         <h2>FAQ</h2>
         <div class="section-line"></div>
       </div>
       <div class="faq-grid">
-
         <div class="faq-item">
           <button class="faq-question">What's the difference between the Shift Log and the Mileage Log?<span class="faq-icon">+</span></button>
           <div class="faq-answer">These two books track different things and work best together. The <a href="#shift-log" class="faq-cross-link">Shift Log</a> captures your complete shift picture — trip count, total earnings, platform fees, fuel, and what you actually kept after costs. It tells you your real hourly rate. The <a href="#mileage-log" class="faq-cross-link">Mileage Log</a> is focused specifically on recording every mile driven for IRS purposes. It's a legal record for tax time, not a profit tracker. If you're serious about both knowing your numbers and defending your deductions, you want both.</div>
         </div>
-
         <div class="faq-item">
           <button class="faq-question">What's the difference between the Mileage Log and the Mileage &amp; Expense Log?<span class="faq-icon">+</span></button>
           <div class="faq-answer">The <a href="#mileage-log" class="faq-cross-link">Rideshare Mileage Log</a> is built specifically for rideshare and delivery drivers — it's compact, quarterly format, and focused on IRS-compliant mileage recording. The <a href="#mileage-expense-log" class="faq-cross-link">Mileage &amp; Expense Log</a> is a broader standalone title for any independent worker or small business owner who needs to track both mileage and business expenses in one place. If you're a rideshare driver, the dedicated Mileage Log is the right fit. If you're a contractor, tradesperson, or run a side business, the Mileage &amp; Expense Log covers more ground.</div>
         </div>
-
         <div class="faq-item">
           <button class="faq-question">Why quarterly instead of annual?<span class="faq-icon">+</span></button>
           <div class="faq-answer">Annual logbooks are physically large and expensive to print, which pushes the price up. A quarterly format keeps each volume compact, affordable, and easier to carry. It also matches how the IRS expects quarterly estimated tax payments — so your tracking period and your tax obligations are in sync. Four books a year at a lower price beats one oversized book you won't carry.</div>
         </div>
-
         <div class="faq-item">
           <button class="faq-question">Do these work for delivery drivers — DoorDash, Instacart, Amazon Flex?<span class="faq-icon">+</span></button>
           <div class="faq-answer">Yes. The tracking structure works for any app-based gig work. The <a href="#shift-log" class="faq-cross-link">Shift Log</a> records platform earnings, fees deducted, and your net — that applies whether you're driving passengers or delivering food and parcels. The <a href="#mileage-log" class="faq-cross-link">Mileage Log</a> is IRS-compliant for any business mileage. The only thing that varies slightly between platforms is how fees are structured, but the log pages accommodate any platform's payout format.</div>
         </div>
-
         <div class="faq-item">
           <button class="faq-question">Are these IRS-compliant?<span class="faq-icon">+</span></button>
           <div class="faq-answer">The <a href="#mileage-log" class="faq-cross-link">Mileage Log</a> is designed to meet IRS contemporaneous recordkeeping requirements — date, destination, business purpose, and mileage for each trip. This is what the IRS expects to see if your deductions are ever questioned. The <a href="#shift-log" class="faq-cross-link">Shift Log</a> is a business performance tool rather than a statutory record, but the data it captures supports your overall tax position. Neither replaces a qualified tax professional, but both give you the records you need.</div>
         </div>
-
         <div class="faq-item">
           <button class="faq-question">Are these print books or digital?<span class="faq-icon">+</span></button>
-          <div class="faq-answer">The logbooks are print — physical books you write in by hand. This is intentional. A handwritten contemporaneous record carries more weight as a legal document than a spreadsheet that can be edited after the fact. The <a href="#income-guide" class="faq-cross-link">Rideshare Driver Income Guide</a> is a Kindle ebook. The free <a href="#toolkit" class="faq-cross-link">Driver Profit System Toolkit</a> is a Google Sheets spreadsheet — a digital companion to the physical logs, not a replacement for them.</div>
+          <div class="faq-answer">The logbooks are print — physical books you write in by hand. This is intentional. A handwritten contemporaneous record carries more weight as a legal document than a spreadsheet that can be edited after the fact. The <a href="#income-guide" class="faq-cross-link">Rideshare Driver Income Guide</a> and <a href="#tax-guide" class="faq-cross-link">What You Earned, What You Owe</a> are Kindle ebooks. The free <a href="#toolkit" class="faq-cross-link">Driver Profit System Toolkit</a> is a Google Sheets spreadsheet — a digital companion to the physical logs, not a replacement for them.</div>
         </div>
-
       </div>
     </section>
 
-    <!-- CONTACT -->
     <section id="contact">
       <div class="section-header">
         <h2>Contact</h2>
@@ -534,30 +371,23 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
   <footer>&copy; 2026 William J. Walsh. All rights reserved. Published independently via Amazon KDP.</footer>
 
-  <!-- MOBILE STICKY BAR -->
   <div class="mobile-sticky-bar">
     <a href="#toolkit" class="btn">Get the Free Toolkit</a>
   </div>
 
   <script>
-    // Fix Kit form mobile overflow — remove min-width attribute Kit's JS uses
     window.addEventListener('load', function() {
       var kitForm = document.querySelector('.formkit-form');
       if (kitForm) kitForm.removeAttribute('min-width');
     });
-
-    // Mobile nav scroll lock
     const navToggle = document.getElementById('nav-toggle');
     if (navToggle) {
       navToggle.addEventListener('change', function() {
         document.body.style.overflow = this.checked ? 'hidden' : '';
       });
     }
-
-    // Smooth scroll + close mobile nav + unlock scroll
     document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
       anchor.addEventListener('click', function(e) {
         var href = this.getAttribute('href');
@@ -565,16 +395,9 @@
         e.preventDefault();
         var target = document.querySelector(href);
         if (target) target.scrollIntoView({ behavior: 'smooth' });
-        
-        // Close mobile menu and restore body scroll
-        if (navToggle) {
-          navToggle.checked = false;
-          document.body.style.overflow = '';
-        }
+        if (navToggle) { navToggle.checked = false; document.body.style.overflow = ''; }
       });
     });
-
-    // FAQ accordion
     document.querySelectorAll('.faq-question').forEach(function(btn) {
       btn.addEventListener('click', function() {
         var item = this.closest('.faq-item');
@@ -583,32 +406,15 @@
         if (!isOpen) item.classList.add('open');
       });
     });
-
-    // ─── DARK MODE LOGIC ────────────────────────────────────────
     const themeToggleBtn = document.getElementById('theme-toggle');
     const htmlEl = document.documentElement;
-
     function applyTheme(theme) {
-      if (theme === 'dark') {
-        htmlEl.classList.add('dark-mode');
-        themeToggleBtn.textContent = '☀️';
-      } else {
-        htmlEl.classList.remove('dark-mode');
-        themeToggleBtn.textContent = '🌙';
-      }
+      if (theme === 'dark') { htmlEl.classList.add('dark-mode'); themeToggleBtn.textContent = '☀️'; }
+      else { htmlEl.classList.remove('dark-mode'); themeToggleBtn.textContent = '🌙'; }
     }
-
-    // 1. Check for saved preference in LocalStorage
     const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-      applyTheme(savedTheme);
-    } else {
-      // 2. Fallback to OS preference
-      const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-      applyTheme(prefersDark ? 'dark' : 'light');
-    }
-
-    // 3. Toggle click handler
+    if (savedTheme) { applyTheme(savedTheme); }
+    else { const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches; applyTheme(prefersDark ? 'dark' : 'light'); }
     themeToggleBtn.addEventListener('click', function() {
       const isDark = htmlEl.classList.contains('dark-mode');
       const newTheme = isDark ? 'light' : 'dark';
